@@ -1,0 +1,98 @@
+body{
+  margin: 0px auto;
+  padding-left: .5em;
+  padding-right: .5em;
+  font-family: "Microsoft YaHei", SimSun, Arial, "MS Trebuchet", sans-serif;
+  max-width: 1080px;
+  background-color: #fbfaf9;
+}
+
+h3{
+   font-size: 1em;
+
+}
+
+h4{
+	margin: 0 10px 2px;
+	font-size: 14px;
+	color: #333;
+}
+
+
+#page_header{ width: 100%; }
+
+#page_header > nav > ul{
+  list-style: none;
+  margin: 0; 
+  padding: 0;
+}
+
+#page_header > nav > ul > li{
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-size: .875em;
+}
+
+#page_header > nav > ul > li > a{
+  padding: 0 16px; 
+  
+}
+
+#page_header > nav > ul > li+li+li a{
+  border-left: 1px solid #aaa;
+}
+
+#page_header > nav > ul > li >a{
+   margin: 3px 0;
+   padding: 0 16px;
+   
+}
+
+#page_header > nav{
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #ccc;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #ccc;
+  margin-bottom: .5em;
+  line-height: 3ex;
+ }
+
+#sidebar{
+  float: left;
+  font-size: .875em;
+}
+
+#sidebar ul li {
+	list-style: none;
+}
+
+#posts{
+  border: 1px solid #eee;
+  box-shadow: 0 0 0.5em #999;
+  margin-top: 1em;
+  margin-left: 300px;
+  padding-left: 2em;
+  padding-right: 2em;
+  min-height: 25em;
+  min-width: 300px;
+}
+
+
+#page_footer{
+  clear: both;
+  display: block; 
+  text-align: center;
+  width: 100%; 
+}
+
+a {
+  color: #2b73b6;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ed6c7b;
+}
