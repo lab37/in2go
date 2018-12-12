@@ -82,7 +82,7 @@ function queryContract(e) {
     }
   };
 
-  xhr.open("POST", "http://127.0.0.1:8080/selectitem", true);
+  xhr.open("POST", "/selectitem", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   console.log(postStr);
   xhr.send(postStr);

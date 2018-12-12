@@ -31,7 +31,7 @@ function addCustomer() {
     }
   };
   console.log(postStr);
-  xhr.open("POST", "http://127.0.0.1:8080/insertitem", true);
+  xhr.open("POST", "/insertitem", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.send(postStr);
 };
