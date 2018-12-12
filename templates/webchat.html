@@ -1,6 +1,6 @@
 {{ define "content" }}
 <p class="lead">
-  <a href="/thread/new">Start a thread</a> or join one below!
+  <a href="/thread/new">新建问题</a> 或者加入如下讨论!
 </p>
 
 {{ range . }}
@@ -9,9 +9,9 @@
       <span class="lead"> <i class="fa fa-comment-o"></i> {{ .Topic }}</span>
     </div>
     <div class="panel-body">
-      Started by {{ .User.Name }} - {{ .CreatedAtDate }} - {{ .NumReplies }} posts.
+      提交者： {{ .User.Name }} - {{ .CreatedAtDate }} - {{ .NumReplies }} 回复.
       <div class="pull-right">
-        <a href="/thread/read?id={{.Uuid }}">Read more</a>
+        <a href="/thread/read?id={{.Uuid }}">更多</a>
       </div>
     </div>
   </div>

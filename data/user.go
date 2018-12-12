@@ -133,7 +133,19 @@ func (user *User) Update() (err error) {
 	}
 	defer stmt.Close()
 
-	_, err = stmt.Exec(user.Id, user.Name, user.Email)
+	_, err = stmt.Exec(user.Name, user.Email, user.Id)
+	return
+}
+
+func (user *User) UpdatePassword() (err error) {
+	statement := "update users set password = ?,created_at=? where id = ?"
+	stmt, err := Db.Prepare(statement)
+	if err != nil {
+		return
+	}
+	defer stmt.Close()
+	timeT := time.Now().Format("2006-01-02 15:04:05")
+	_, err = stmt.Exec(Encrypt(user.Password), timeT, user.Id)
 	return
 }
 

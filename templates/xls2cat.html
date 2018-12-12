@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="/static/favicon.png" type=image/x-icon>
+  <title>表格合并系统</title>
+  <link rel="stylesheet" href="/static/css/xls2cat.css">
+  <script src="/static/js/xlsx.core.min.js"></script>
+  <script src="/static/js/jquery-2.1.1.min.js"></script>
+</head>
+
+<body>
+  <h1><a href="index" style="color: #333"><img src="static/logo.png" width="64" height="64" style="vertical-align: middle">Excel合并系统</a></h1>
+  <p style="color:red;font-size:15pt;">此系统主要用来合并各地区业务员或商业公司提交上来的报表，特别是库存和流向。提前做好对应表，然后每次通过此系统合并即可。合并后的数据复制到带有公式的原报表中报表内容便可自动生成。</p>
+
+  <section id="buttons">
+    <p><label><span>待合并表格(多选)：</span></label><input id="i1" type='file' accept=".xlsx,.xls" multiple /></p>
+    <p><label><span>列名对应表(单个)：</span></label><input id="i2" type='file' accept=".xlsx,.xls" /></p>
+
+  </section>
+  <input id="i3" type='button' value="合并表格" />
+  <section>
+    <ul id="result">
+
+    </ul>
+  </section>
+  <section id="monitor">
+    <h3>请等待文件全部合并完毕后再下载结果（绿色表示导入完成)</h3>
+    <input id="i4" type='button' value="下载结果" />
+  </section>
+
+  <ul>
+    <li>首先注意我说的是文件还是工作表，文件是文件，工作表是文件内部的表（像sheet1，sheet2这样的等等），工作表的名字不重要。
+    </li>
+    <li>待合并文件是指商业公司或业务员发过来的文件，可以选择多个文件。后缀是xlsx或xls都可以。</li>
+
+    <li>每个待合并文件自己要先处理一下，内部只留一个工作表，表里只留标题和数据，注意把最后的汇总行删掉。</li>
+    <li>对应文件也是一个excel文件，里面只能有一个工作表，记录着要从每个文件中提取的数据所在的列名。</li>
+    <li>每个待合并文件的文件名改成对应表中登记的名字。</li>
+    <li>其它不懂的问周京成，服务时间：9:00-21:00。</li>
+  </ul>
+  <img class="img" src="/static/css/images/fx-exp.png" />
+  <script src="/static/js/xls2cat.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<fieldset>
+	<legend><span>发票记录</span></legend>
+	<label for="invoice_ivid">发票号码：</label><input class="input" type="text" id="ivid" name="invoice_ivid" />
+	<label for="invoice_ivdate">开票日期：</label><input class="input" type="text" id="ivdate" name="invoice_ivdate" />
+	<label for="invoice_ccid">合同号码：</label><input class="input" type="text" id="ccid" name="invoice_ccid" />
+	<label for="invoice_srcname">开票单位：</label><input class="input" type="text" id="srcname" name="invoice_srcname" />
+	<label for="invoice_cstmname">收票单位：</label><input class="input" type="text" id="cstmname" name="invoice_cstmname" /> </br>
+	<label for="invoice_postdate">邮寄日期：</label><input class="input" type="text" id="postdate" name="invoice_postdate" />
+	<label for="invoice_remark">备注信息：</label><input class="input" type="text" id="remark" name="invoice_remark" />
+</br>
+	<button id="invoice_query_some">查询</button>
+	<button id="invoice_query_all">查询全部</button>
+</fieldset>
+<table id="invoice_results">
+</table>
+<fieldset id='change_table'>
+	
+</fieldset>
+<script src="/static/js/jxc/invoice_query.js" ></script>
+<link rel="stylesheet" href="/static/css/jxc.css">

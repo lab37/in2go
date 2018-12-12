@@ -1,0 +1,26 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>高开扣税计算器</title>
+  <link rel="stylesheet" href="/static/css/tax.css">
+  <link rel="shortcut icon" href="/static/favicon.png" type=image/x-icon>
+  <script src="/static/js/jquery-2.1.1.min.js"></script>
+</head>
+
+<body>
+
+
+<h1><a href="index" style="color: #333"><img src="static/logo.png" width="64" height="64" style="vertical-align: middle">高开票费用计算</a></h1>
+
+    <p><label><span>请输入底价：</span></label><input type="number" value="0.00"  min="0.00" step="0.01" id="lowPrice" placeholder="必填" /></p>
+    <p><label><span>输入开票价：</span></label><input type="number" value="0.00"  min="0.00" step="0.01"   id="highPrice" placeholder="必填" /></p>
+    <p><label><span>底价扣点数：</span></label><input type="number"   min="0.00" step="0.01"   id="lowP"  placeholder="(可选,例如：20)" /></p>
+    <p><label><span>高开扣点数：</span></label><input type="number"   min="0.00" step="0.01"   id="highP"  placeholder="(可选,例如：20)" /></p>
+    <p><label><span>全额扣点数：</span></label><input type="number"   min="0.00" step="0.01"  id="allP"  placeholder="(可选,例如：20)" /></p>
+    <p>开票费用：<span class="rsts"  id="diffPrice">0.0000</span>元</p>
+    <p>剩余利润：<span class="rsts"  id="profic">0.0000</span>元</p>
+    <button id="do">计算</button>
+<script src="/static/js/tax.js"></script>
+</body>
+</html>

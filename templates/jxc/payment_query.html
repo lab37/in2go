@@ -1,0 +1,18 @@
+<fieldset>
+	<legend><span>查询回款</span></legend>
+	<label for="payment_ccid">合同号码：</label><input class="input" type="text" id="ccid" name="payment_ccid" />
+	<label for="payment_srcname">收款客户：</label><input class="input" type="text" id="srcname" name="payment_srcname" />
+	<label for="payment_cstmname">回款客户：</label><input class="input" type="text" id="cstmname" name="payment_cstmname" />
+	<label for="payment_pmdate">回款日期：</label><input class="input" type="text" id="pmdate" name="payment_pmdate" />
+	<label for="payment_remark">备注信息：</label><input class="input" type="text" id="remark" name="payment_remark" />
+</br>
+	<button id="payment_query_some">查询</button>
+	<button id="payment_query_all">查询全部</button>
+</fieldset>
+<table id="payment_results">
+</table>
+<fieldset id='change_table'>
+	
+</fieldset>
+<script src="/static/js/jxc/payment_query.js" ></script>
+<link rel="stylesheet" href="/static/css/jxc.css">

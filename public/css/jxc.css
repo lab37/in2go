@@ -1,0 +1,32 @@
+input {
+    margin-right:20px;
+    margin-top:10px;
+}
+select option {
+     width:100px;
+     font-size: 11pt;
+ }
+button {
+    display:inline-block;
+    width:100px;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 13pt;
+    background-color: #cb6868;
+    color: #f3dad1;
+    border: none;
+    border-radius: 5px;
+}
+  
+  button:hover {
+    background-color: #d75359;
+    color: #f3dad1;
+    cursor: pointer;
+    box-shadow: none;
+    position: relative;
+    top: 1px;
+}
+
+
+

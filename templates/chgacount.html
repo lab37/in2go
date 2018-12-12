@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>建华进销存系统</title>
+  <link rel="shortcut icon" href="/static/favicon.png" type=image/x-icon> 
+  <link rel="stylesheet" href="/static/css/index.css">
+  
+  <style type="text/css">
+    button {
+    width:70px;
+    margin-left: 30px;
+    font-size: 13pt;
+    background-color: #cb6868;
+    color: #f3dad1;
+    border: none;
+    border-radius: 5px;
+}
+  
+  button:hover {
+    background-color: #d75359;
+    color: #f3dad1;
+    cursor: pointer;
+    box-shadow: none;
+    position: relative;
+    top: 1px;
+}
+  
+  </style>
+
+</head>
+
+<body>
+  <section style="width:800px;">
+    <h2>
+        <i>
+         帐户管理
+        </i>
+      </h2>
+<form action="/updateacount" method="post">
+  <fieldset>
+    <legend><span>修改用户名和邮箱</span></legend>
+  <label for="name">新用户名：</label><input id="name" value={{.Name}} type="text" name="name" placeholder="用户名" required autofocus style="margin-right:30px;">
+  <label for="email">新邮箱：</label><input type="email" value={{.Email}} name="email"  placeholder="邮箱" required>
+  <button type="submit">提交</button>
+  </fieldset>
+</form>
+
+<form action="/updatepassword" method="post" style="margin-top:50px;">
+  <fieldset>
+      <legend><span>修改密码</span></legend>
+      <label for="password">新密码：</label><input type="password" name="password" placeholder="新密码" required>
+    <button  type="submit">提交</button>
+    </fieldset>
+  </form>
+</section>
+  </body>
+  </html>

@@ -1,0 +1,27 @@
+<fieldset>
+	<legend><span>合同查询</span></legend>
+	<label for="contract_ccid">合同号码：</label><input type="text" id="ccid" name="contract_ccid" />
+	
+	<label for="contract_ccdate">签定日期：</label><input class="input" type="text" id="ccdate" name="contract_ccdate" />
+	<label for="contract_cctype">合同类型：</label><input class="input" type="text" id="cctype" name="contract_cctype" />
+	<label for="contract_srcname">售出客户：</label><input class="input" type="text" id="srcname" name="contract_srcname" />
+	<label for="contract_cstmname">购入客户：</label><input class="input" type="text" id="cstmname" name="contract_cstmname" /></br>
+	<label for="contract_prdtname">品种名称：</label><input class="input" type="text" id="prdtname" name="contract_prdtname" /> 
+	<label for="contract_specific">品种规格：</label><input class="input" type="text" id="specific" name="contract_specific" /> 
+	<label for="contract_remark">其它备注：</label><input class="input" type="text" id="remark" name="contract_remark" />
+	<label for="contract_vector">购进售出：</label><select class="input"  id="vector"  name="contract_vector">
+			<option value=0>售出</option>
+			<option value=1>购进</option>			
+			<option value=2>全部</option>
+	</select>
+</br>
+	<button id="contract_query_some">查询</button>
+	<button id="contract_query_all">查询全部</button>
+</fieldset>
+<table id="contract_results">
+</table>
+<fieldset id='change_table'>
+	
+</fieldset>
+<script src="/static/js/jxc/contract_query.js" ></script>
+<link rel="stylesheet" href="/static/css/jxc.css">
