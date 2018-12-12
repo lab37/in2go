@@ -53,6 +53,7 @@ function outwayInvoiceQuery(e) {
       }
       // Update the page with the new content
       document.getElementById('outway_invoice_results').innerHTML = newContent;
+      $('#export').show();
     }
   };
 
@@ -61,7 +62,10 @@ function outwayInvoiceQuery(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','outway_invoice_results');
+});
 let cstmSelects = getCustomerName();
 $("#cstmname").autocomplete({
   source: cstmSelects

@@ -62,6 +62,7 @@ function customer_query(e) {
       }
       // Update the page with the new content
       document.getElementById('customer_results').innerHTML = newContent;
+      $('#export').show()
     }
   };
   xhr.open("POST", "/selectitem", true);
@@ -69,7 +70,10 @@ function customer_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','customer_results');
+});
 let cstmSelects = getCustomerName();
 $("#cstmname").autocomplete({
   source: cstmSelects

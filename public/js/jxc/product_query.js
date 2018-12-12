@@ -60,6 +60,7 @@ function product_query(e) {
       }
       // Update the page with the new content
       document.getElementById('product_results').innerHTML = newContent;
+      $('#export').show();
     }
   };
 
@@ -68,8 +69,10 @@ function product_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
-
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','product_results');
+});
 
 var el = document.getElementById('product_query_some');
 if (el.addEventListener) {

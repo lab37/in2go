@@ -69,6 +69,7 @@ function queryContract(e) {
       }
       // Update the page with the new content
       document.getElementById('contract_results').innerHTML = newContent;
+      $('#export').show()
     }
   };
 
@@ -77,7 +78,10 @@ function queryContract(e) {
   console.log(postStr);
   xhr.send(postStr);
 };
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','contract_results');
+});
 $("#ccdate").datepicker();
 
 let cstmSelects = getCustomerName();

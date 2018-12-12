@@ -57,6 +57,7 @@ function payment_query(e) {
       }
       // Update the page with the new content
       document.getElementById('payment_results').innerHTML = newContent;
+      $('#export').show();
     }
   };
 
@@ -65,6 +66,11 @@ function payment_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
+
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','payment_results');
+});
 
 $("#pmdate").datepicker();
 

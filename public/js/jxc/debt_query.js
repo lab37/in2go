@@ -51,6 +51,7 @@ function debt_query(e) {
       }
       // Update the page with the new content
       document.getElementById('debt_results').innerHTML = newContent;
+      $('#export').show()
     }
   };
 
@@ -59,7 +60,10 @@ function debt_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','debt_results');
+});
 $("#pmdate").datepicker();
 
 var el = document.getElementById('debt_query_some');

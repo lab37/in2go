@@ -54,6 +54,7 @@ function stockQuery(e) {
       }
       // Update the page with the new content
       document.getElementById('income_results').innerHTML = newContent;
+      $('#export').show();
     }
   };
 
@@ -62,7 +63,10 @@ function stockQuery(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','income_results');
+});
 let cstmSelects = getCustomerName();
 $("#cstmname").autocomplete({
   source: cstmSelects

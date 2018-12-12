@@ -66,6 +66,7 @@ function invoice_query(e) {
       }
       // Update the page with the new content
       document.getElementById('invoice_results').innerHTML = newContent;
+      $('#export').show();
     }
   };
 
@@ -74,7 +75,10 @@ function invoice_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','invoice_results');
+});
 $("#ivdate").datepicker();
 $("#postdate").datepicker();
 

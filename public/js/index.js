@@ -58,3 +58,11 @@ $(function() {
     heightStyle: "content"
   });
 });
+
+function table2xlsx(type,elementID, fn, dl) {
+	var elt = document.getElementById(elementID);
+	var wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
+	return dl ?
+		XLSX.write(wb, {bookType:type, bookSST:true, type: 'base64'}) :
+		XLSX.writeFile(wb, fn || ('test.' + (type || 'xlsx')));
+}

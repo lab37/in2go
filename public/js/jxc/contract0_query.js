@@ -51,6 +51,7 @@ function contract0_query(e) {
       }
       // Update the page with the new content
       document.getElementById('contract0_results').innerHTML = newContent;
+      $('#export').show()
     }
   };
 
@@ -59,7 +60,10 @@ function contract0_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','contract0_results');
+});
 $("#ivdata").datepicker();
 
 let cstmSelects = getCustomerName();

@@ -59,6 +59,7 @@ function outwayProductQuery(e) {
       }
       // Update the page with the new content
       document.getElementById('outway_product_results').innerHTML = newContent;
+      $('#export').show();
     }
   };
 
@@ -67,7 +68,10 @@ function outwayProductQuery(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','outway_product_results');
+});
 let cstmSelects = getCustomerName();
 $("#cstmname").autocomplete({
   source: cstmSelects

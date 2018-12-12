@@ -58,6 +58,7 @@ h1 {
     box-shadow: -4px 8px 14px #333333;
 }
 
-#result-box{
+#buttons input{
+    margin-right: 32px;
 
 }

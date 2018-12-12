@@ -66,6 +66,7 @@ function income_query(e) {
       }
       // Update the page with the new content
       document.getElementById('income_results').innerHTML = newContent;
+      $('#export').show()
     }
   };
 
@@ -74,7 +75,10 @@ function income_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
-
+$('#export').hide();
+$('#export').click(function(){
+  table2xlsx('xlsx','income_results');
+});
 $("#icdate").datepicker();
 
 let cstmSelects = getCustomerName();
