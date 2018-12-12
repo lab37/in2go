@@ -11,15 +11,21 @@ function catArr(xArr, yArrs) {
   let maps = new Array();
   for (let i = 1; i < xArr.length; i++) {
     let ct=0;
+    if (xArr[i]=='无') {
+      maps.push(1024);
+      continue;
+    }
     for (let j = 0; j < yArrs[0].length; j++) {
+      
       if (yArrs[0][j] == xArr[i]) {
         maps.push(j);
         break;
       }
+      
       ct=ct+1;
     }
     if(ct==yArrs[0].length) {
-      alert("在表格--("+xArr[0]+".xlsx)--中未找到对应表中指明的标题为--("+xArr[i]+")--的列！所有合并工作中止，请修改完成后刷新页面重新操作！一定要刷新页面再操作！！！");
+      alert("对应表中指明的名为--("+xArr[i]+")--的列未在文件--("+xArr[0]+".xlsx)--中找到！此文件导入不完全，请修改后重新操作！");
     }
   }
   for (let k = 1; k < yArrs.length; k++) {
@@ -134,7 +140,7 @@ document.querySelector('#i3').onclick = function () {
           ct=ct+1
         }
         if(ct==fxarrs.length){
-          alert("没有在对应表中找到文件--("+files2cat[i].name+")--的对应项！所有合并中止，请修改表格后刷新网页重新操作！ 一定要刷新页面再操作！！！");
+          alert("对应表中没有文件--("+files2cat[i].name+")--的对应项！此文件导入错误，请修改表格后重新操作！");
           return;
         }
       
