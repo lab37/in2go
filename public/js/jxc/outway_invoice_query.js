@@ -49,7 +49,6 @@ function outwayInvoiceQuery(e) {
         newContent += '<td name="gap">' +(responseObject[i].Csum - responseObject[i].Osum) + '</td>';
         newContent += '<td name="remark">' + responseObject[i].Remark + '</td>';
 
-        // newContent += '<td>' + '<input type="button" class="chg" onclick="upt(`' + responseObject[i].Id + '`)" value="修改" /> <input type="button" class="del" onclick="del(`' + responseObject[i].Id + '`)" value="删除" />' + '</td>';
         newContent += '</tr>';
       }
       // Update the page with the new content
@@ -92,63 +91,4 @@ if (el2.addEventListener) {
     outwayInvoiceQuery(e);
   });
 }
-
-// function upt(id) {
-//   let domStr='<legend><span>修改记录</span></legend>';
-//   $('#' + id).children().each(function (index, element) {
-//     if($(element).attr("name") != undefined){
-//     domStr += '<label>'+index +'：</label><input id="update' + $(element).attr("name") + '" value="' + $(element).text() + '">'
-//     }
-//   });
-//   domStr += '<input type="button" class="sv" onclick="sv(`' + id + '`)" value="保存" /><input type="button" class="sv" onclick="hd()" value="取消" />';
-//   console.log(domStr);
-//   $("#change_table").html(domStr);
-//   $("#change_table").show();
-//   window.location.hash = "#change_table";
-// }
-
-// function sv(id) {
-//   $.post("updateitem",{
-//   topic:'inway_invoice',
-//   id:id,
-//   cstmname : document.getElementById("updatecstmname").value.replace(/\s+/g,""),
-//   prdtname : document.getElementById("updateprdtname").value.replace(/\s+/g,""),
-//   specific : document.getElementById("updatespecific").value.replace(/\s+/g,""),
-//   quantity : document.getElementById("updatequantity").value.replace(/\s+/g,""),
-//   pnumber : document.getElementById("updatepnumber").value.replace(/\s+/g,""),
-//   remark : document.getElementById("updateremark").value.replace(/\s+/g,"")
-//   },
-//   function(data,status){
-//     alert(data);
-//     if(status=="success"){
-//       $("#change_table").hide();
-//     }
-//   });
-// }
-
 $("#change_table").hide();
-// function hd(){
-//   $("#change_table").hide();
-//   }
-
-// function del(id) {
-//   var cfm = confirm("确认要删这条记录吗？");
-//   if (cfm == true) {
-//     $.post("deleteitem",
-//       {
-//         topic: "inway_invoice",
-//         id: id
-//       },
-//       function (data, status) {
-//         if (status == "success") {
-//           alert(data);
-//           $("#" +id).hide();
-//         } else {
-//           alert("服务器错误，请联系周京成");
-//         }
-//       });
-//   }
-//   else {
-//     return;
-//   }
-// }

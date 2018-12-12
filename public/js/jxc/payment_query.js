@@ -52,7 +52,7 @@ function payment_query(e) {
         newContent += '<td name="pmdate">' + responseObject[i].pmdate + '</td>';
         newContent += '<td name="pmsum">' + responseObject[i].PmSum + '</td>';
         newContent += '<td name="remark">' + responseObject[i].Remark + '</td>';
-        newContent += '<td>' + '<input type="button" class="chg" onclick="upt(`' + responseObject[i].Id + '`)" value="修改" /> <input type="button" class="del" onclick="del(`' + responseObject[i].Id + '`)" value="删除" />' + '</td>';
+        newContent += '<td>' + '<input type="button" class="chg" onclick="upt(' +"'"+ responseObject[i].Id+"'" + ')" value="修改" /> <input type="button" class="del" onclick="del(' +"'"+ responseObject[i].Id +"'"+ ')" value="删除" />' + '</td>';
         newContent += '</tr>';
       }
       // Update the page with the new content
@@ -105,7 +105,7 @@ function upt(id) {
     domStr += '<label>'+index +'：</label><input id="update' + $(element).attr("name") + '" value="' + $(element).text() + '">'
     }
   });
-  domStr += '<input type="button" class="sv" onclick="sv(`' + id + '`)" value="保存" /><input type="button" class="sv" onclick="hd()" value="取消" />';
+  domStr += '<input type="button" class="sv" onclick="sv(' +"'"+ id +"'"+ ')" value="保存" /><input type="button" class="sv" onclick="hd()" value="取消" />';
   $("#change_table").html(domStr);
   $("#change_table").show();
   $("html,body").animate({scrollTop:$("#change_table").offset().top},1000);

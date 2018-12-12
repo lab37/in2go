@@ -51,17 +51,7 @@ function queryContract(e) {
       newContent += '<td>备注</td>';
       newContent += '<td>操作</td>';
       newContent += '</tr>';
-      for (var i = 0; i < responseObject.length; i++) {    // Loop through object
-        // let domStr = '<legend><span>修改记录</span></legend>';
-        // domStr += '<label>合同编号：</label><input type="text" id="updateccid"  value="' +  responseObject[i].CcId +'/>'
-        // domStr += '<label>购进售出：</label><input type="text" id="updatevector"  value="' +  responseObject[i].Vector +'/>'
-        // domStr += '<label>签定日期：</label><input type="text" id="updateccdate"  value="' +  responseObject[i].ccdate +'/>'
-        // domStr += '<label>合同类型：</label><input type="text" id="updatecctype"  value="' +  responseObject[i].CcType +'/>'
-        // domStr += '<label>客户编码：</label><input type="text" id="updatecstmid"  value="' +  responseObject[i].CstmId +'/>'
-        // domStr += '<label>产品编码：</label><input type="text" id="updateprdtid"  value="' +  responseObject[i].PrdtId +'/>'
-        // domStr += '<label>销售价格：</label><input type="text" id="updateprice"  value="' +  responseObject[i].Price +'/>'
-        // domStr += '<label>销售数量：</label><input type="text" id="updatequantity"  value="' + responseObject[i].Quantity  +'/>'
-        // domStr += '<label>备注信息：</label><input type="text" id="updateremark"  value="' +  responseObject[i].Remark +'/>'
+      for (var i = 0; i < responseObject.length; i++) {
         newContent += '<tr id="' + responseObject[i].Id + '">';
         newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
         newContent += '<td name="victor">' + (responseObject[i].Vector==0?"购进":"售出") + '</td>';
@@ -74,7 +64,7 @@ function queryContract(e) {
         newContent += '<td name="price">' + responseObject[i].Price + '</td>';
         newContent += '<td name="quantity">' + responseObject[i].Quantity + '</td>';
         newContent += '<td name="remark">' + responseObject[i].Remark + '</td>';
-        newContent += '<td>' + '<input type="button" class="chg" onclick="upt(`' + responseObject[i].Id + '`)" value="修改" /> <input type="button" class="del" onclick="del(`' + responseObject[i].Id + '`)" value="删除" />' + '</td>';
+        newContent += '<td>' + '<input type="button" class="chg" onclick="upt(' +"'" + responseObject[i].Id +"'" +')" value="修改" /> <input type="button" class="del" onclick="del(' +"'"+ responseObject[i].Id +"'"+ ')" value="删除" />' + '</td>';
         newContent += '</tr>';
       }
       // Update the page with the new content
@@ -128,7 +118,7 @@ function upt(id) {
     domStr += '<label>'+index +'：</label><input id="update' + $(element).attr("name") + '" value="' + $(element).text() + '">'
     }
   });
-  domStr += '<input type="button" class="sv" onclick="sv(`' + id + '`)" value="保存" /><input type="button" class="sv" onclick="hd()" value="取消" />';
+  domStr += '<input type="button" class="sv" onclick="sv(' +"'"+ id+"'" + ')" value="保存" /><input type="button" class="sv" onclick="hd()" value="取消" />';
   $("#change_table").html(domStr);
   $("#change_table").show();
   $("html,body").animate({scrollTop:$("#change_table").offset().top},1000);

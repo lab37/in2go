@@ -55,7 +55,7 @@ function product_query(e) {
         newContent += '<td name="inline">' + responseObject[i].Inline + '</td>';
         newContent += '<td name="ivtype">' + responseObject[i].IvType + '</td>';
         newContent += '<td name="remark">' + responseObject[i].Remark + '</td>';
-        newContent += '<td>' + '<input type="button" class="chg" onclick="upt(`' + responseObject[i].PrdtId + '`)" value="修改" /> <input type="button" class="del" onclick="del(`'+  responseObject[i].PrdtId + '`)" value="删除" />' + '</td>';
+        newContent += '<td>' + '<input type="button" class="chg" onclick="upt(' +"'"+ responseObject[i].PrdtId +"'"+ ')" value="修改" /> <input type="button" class="del" onclick="del('+"'"+  responseObject[i].PrdtId +"'"+ ')" value="删除" />' + '</td>';
         newContent += '</tr>';
       }
       // Update the page with the new content
@@ -100,7 +100,7 @@ function upt(prdtid) {
     domStr += '<label>'+index +'：</label><input id="update' + $(element).attr("name") + '" value="' + $(element).text() + '">'
     }
   });
-  domStr += '<input type="button" class="sv" onclick="sv(`' + prdtid + '`)" value="保存" /><input type="button" class="sv" onclick="hd()" value="取消" />';
+  domStr += '<input type="button" class="sv" onclick="sv(' +"'"+ prdtid +"'"+ ')" value="保存" /><input type="button" class="sv" onclick="hd()" value="取消" />';
   $("#change_table").html(domStr);
   $("#change_table").show();
   // window.location.hash = "#change_table";
