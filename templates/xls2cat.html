@@ -14,15 +14,16 @@
   <p style="color:red;font-size:15pt;">此系统主要用来合并各地区业务员或商业公司提交上来的报表，特别是库存和流向。提前做好对应表，然后每次通过此系统合并即可。合并后的数据复制到带有公式的原报表中报表内容便可自动生成。</p>
 
   <section id="buttons">
-    <p><label><span>待合并表格(多选)：</span></label><input id="i1" type='file' accept=".xlsx,.xls" multiple /></p>
-    <p><label><span>列名对应表(单个)：</span></label><input id="i2" type='file' accept=".xlsx,.xls" /></p>
+    <p><label><span>待合并表格(多选)：</span></label><input id="i1" type='file' accept=".xlsx,.xls" multiple /><span id="fcount"></span></p>
+    <p><label><span>列名对应表(单个)：</span></label><input id="i2" type='file' accept=".xlsx,.xls" /><span id="fname"></span></p>
 
   </section>
   <input id="i3" type='button' value="合并表格" />
-  <section>
-    <ul id="result">
+  <section id="result-box">
+    <p>待合并文件名称：</p>
+    <ol id="result">
 
-    </ul>
+    </ol>
   </section>
   <section id="monitor">
     <h3>请等待文件全部合并完毕后再下载结果（绿色表示导入完成)</h3>
