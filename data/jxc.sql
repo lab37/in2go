@@ -111,7 +111,7 @@ create table debts
   id integer PRIMARY key not null,
   srcid integer not null references customers(cstmid),
   cstmid integer not null references customers(cstmid),
-  dbtsum real default 0 check(dbtsum>=0),
+  dbtsum real default 0,
   remark text DEFAULT '-',
   UNIQUE(srcid,cstmid)
 );

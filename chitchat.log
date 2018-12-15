@@ -249,3 +249,4 @@ ERROR 2018/12/07 15:05:31 utils.go:100: sql: no rows in result set Cannot find u
 ERROR 2018/12/14 22:03:15 utils.go:100: When select all inway products get an error sql: Scan error on column index 2, name "prdtid": converting driver.Value type []uint8 ("0020020021ZYLC0014") to a int: invalid syntax
 ERROR 2018/12/14 22:03:51 utils.go:100: When select all inway products get an error sql: Scan error on column index 2, name "prdtid": converting driver.Value type []uint8 ("0020020021ZYLC0014") to a int: invalid syntax
 ERROR 2018/12/14 22:55:22 utils.go:100: When insert the payment get an error CHECK constraint failed: debts
+ERROR 2018/12/15 20:05:24 utils.go:100: When insert the invoice get an error CHECK constraint failed: onway_invoices
