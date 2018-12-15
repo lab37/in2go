@@ -71,6 +71,11 @@ $("#cstmname").autocomplete({
   source: cstmSelects
 });
 
+let allCcId= getAllCcId();
+$("#ccid").autocomplete({
+  source: allCcId
+});
+
 var el = document.getElementById('contract0_query_some');
 if (el.addEventListener) {
   el.addEventListener('click', function (e) {

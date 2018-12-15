@@ -59,6 +59,10 @@ $("#specific").focus(function () {
   });
 });
 
+let allCcId= getAllCcId();
+$("#ccid").autocomplete({
+  source: allCcId
+});
 
 $("#ogdate").datepicker();
 

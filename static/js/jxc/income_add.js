@@ -57,6 +57,11 @@ $("#specific").focus(function () {
   });
 });
 
+let allCcId= getAllCcId();
+$("#ccid").autocomplete({
+  source: allCcId
+});
+
 $("#icdate").datepicker();
 
 var el = document.getElementById('income_add');

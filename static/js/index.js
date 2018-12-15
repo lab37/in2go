@@ -40,6 +40,18 @@ function getCustomerName() {
   return rsts;
 }
 
+function getAllCcId() {
+  let rsts = new Array();
+  $.ajaxSettings.async = false;
+  $.getJSON("getallccid",function(result){
+    $.each(result, function(i, field){
+      rsts.push(field.CcId); 
+    });
+  });
+  $.ajaxSettings.async = true;
+  return rsts;
+}
+
 function getProductNS() {
   let rsts = new Array();
   $.ajaxSettings.async = false;

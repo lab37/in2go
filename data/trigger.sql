@@ -1,84 +1,3 @@
-
-
-create view stocks_auto
-AS
-  select cstmid, prdtid, isum, (select osum
-    from (select (select cstmid
-        from contracts0
-        where contracts0.ccid=outgos.ccid) as cstmid, prdtid, sum(quantity) as osum
-      from outgos
-      group by cstmid,prdtid) o
-    where o.cstmid=i.cstmid and o.prdtid = i.prdtid )
-  from ((select cstmid, prdtid, sum(quantity) as isum
-    from incomes
-    group by cstmid,prdtid) i);
-
-create view debts_auto
-as
-  select ccid, ivsum, (select pmtsum
-    from (select ccid, sum(pmsum) as pmtsum
-      from payments
-      group by ccid) o
-    where o.ccid=c.ccid) as osum
-  from (select ccid, sum(ivsum) as ivsum
-    from invoices
-    group by ccid) c;
-
-
-
-create view inway_products_auto
-as
-  select ccid, prdtid, quantity, (select qsum
-    from (select ccid, prdtid, sum(quantity) as qsum
-      from incomes
-      group by ccid,prdtid) tmp
-    where tmp.ccid=contracts.ccid and tmp.prdtid=contracts.prdtid ) as isum
-  from contracts
-  where ccid in (select ccid
-  from contracts0
-  where contracts0.vector = 0);
-
-create view outway_products_auto
-as
-  select ccid, prdtid, quantity, (select qsum
-    from (select ccid, prdtid, sum(quantity) as qsum
-      from outgos
-      group by ccid,prdtid) tmp
-    where tmp.ccid=contracts.ccid and tmp.prdtid=contracts.prdtid ) as osum
-  from contracts
-  where ccid in (select ccid
-  from contracts0
-  where contracts0.vector = 1);
-
-create view inway_invoices_auto
-AS
-  select ccid, csum, (select ivtsum
-    from (select ccid, sum(ivsum) as ivtsum
-      from invoices
-      group by ccid) t2
-    where t2.ccid=t1.ccid ) as isum
-  from (select ccid, sum(price*quantity) as csum
-    from contracts
-    where ccid in (select ccid
-    from contracts0
-    where contracts0.vector=0)
-    group by ccid) t1;
-
-
-create view outway_invoices_auto
-AS
-  select ccid, csum, (select ovtsum
-    from (select ccid, sum(ivsum) as ovtsum
-      from invoices
-      group by ccid) t2
-    where t2.ccid=t1.ccid ) as osum
-  from (select ccid, sum(price*quantity) as csum
-    from contracts
-    where ccid in (select ccid
-    from contracts0
-    where contracts0.vector=1)
-    group by ccid) t1;
-
 create TRIGGER add_stocks4incoms after
 insert
 ON
@@ -123,16 +42,14 @@ update stocks set quantity = quantity+new.quantity where prdtid=new.prdtid and c
 limit 1);
 END;
 
-
-
 create TRIGGER del_stocks4outgos after
 insert
 ON
 outgos
 BEGIN
   update stocks set quantity = quantity-new.quantity where prdtid=new.prdtid and cstmid=(select cstmid
-    from contracts
-    where contracts.ccid=new.ccid
+    from contracts0
+    where contracts0.ccid=new.ccid
   limit 1);
 END;
 
@@ -142,8 +59,8 @@ ON
 outgos
 BEGIN
   update stocks set quantity = quantity+old.quantity where prdtid=old.prdtid and cstmid=(select cstmid
-    from contracts
-    where contracts.ccid=old.ccid
+    from contracts0
+    where contracts0.ccid=old.ccid
   limit 1);
 END;
 
@@ -153,18 +70,14 @@ ON
 outgos
 BEGIN
   update stocks set quantity = quantity+old.quantity where prdtid=old.prdtid and cstmid=(select cstmid
-    from contracts
-    where contracts.ccid=old.ccid
+    from contracts0
+    where contracts0.ccid=old.ccid
   limit 1);
   update stocks set quantity = quantity-new.quantity where prdtid=new.prdtid and cstmid=(select cstmid
-    from contracts
-    where contracts.ccid=new.ccid
+    from contracts0
+    where contracts0.ccid=new.ccid
   limit 1);
 END;
-
-
-
-
 
 create TRIGGER del_debts4payments after
 insert 
@@ -303,8 +216,10 @@ contracts
 BEGIN
   insert into onway_products
     (ccid,prdtid,quantity,cksum)
-  values(new.ccid, new.prdtid, new.quantity, new.quantity);
+  values(new.ccid, new.prdtid, new.quantity, 0);
 END;
+
+
 create TRIGGER update_onway_products after
 update
 ON
@@ -312,7 +227,7 @@ contracts
 BEGIN
   insert into onway_products
     (ccid,prdtid,quantity,cksum)
-  values(new.ccid, new.prdtid, new.quantity, new.quantity);
+  values(new.ccid, new.prdtid, new.quantity, 0);
 END;
 
 create TRIGGER add_onway_products4incomes after
@@ -320,7 +235,7 @@ insert
 ON
 incomes
 BEGIN
-  update onway_products set cksum=cksum-new.quantity where ccid=new.ccid and prdtid=new.prdtid;
+  update onway_products set cksum=cksum+new.quantity where ccid=new.ccid and prdtid=new.prdtid;
 END;
 
 create TRIGGER del_onway_products4incomes after
@@ -328,7 +243,7 @@ delete
 ON
 incomes
 BEGIN
-  update onway_products set cksum=cksum+old.quantity where ccid=old.ccid and prdtid=old.prdtid;
+  update onway_products set cksum=cksum-old.quantity where ccid=old.ccid and prdtid=old.prdtid;
 END;
 
 create TRIGGER upt_onway_products4incomes after
@@ -336,36 +251,36 @@ update
 ON
 incomes
 BEGIN
-  update onway_products set cksum=cksum+old.quantity where ccid=old.ccid and prdtid=old.prdtid;
-  update onway_products set cksum=cksum-new.quantity where ccid=new.ccid and prdtid=new.prdtid;
+  update onway_products set cksum=cksum-old.quantity where ccid=old.ccid and prdtid=old.prdtid;
+  update onway_products set cksum=cksum+new.quantity where ccid=new.ccid and prdtid=new.prdtid;
 END;
 
 
 
 
-create TRIGGER del_onway_products4outgos after
+create TRIGGER add_onway_products4outgos after
 insert
 ON
 outgos
 BEGIN
-  update onway_products set cksum=cksum-new.quantity where ccid=new.ccid and prdtid=new.prdtid;
+  update onway_products set cksum=cksum+new.quantity where ccid=new.ccid and prdtid=new.prdtid;
 END;
 
-create TRIGGER add_onway_products4outgos after
+create TRIGGER del_onway_products4outgos after
 delete
 ON
 outgos
 BEGIN
-  update onway_products set cksum=cksum+old.quantity where ccid=old.ccid and prdtid=old.prdtid;
+  update onway_products set cksum=cksum-old.quantity where ccid=old.ccid and prdtid=old.prdtid;
 END;
 
-create TRIGGER del_onway_products4outgos after
+create TRIGGER upt_onway_products4outgos after
 update
 ON
 outgos
 BEGIN
-  update onway_products set cksum=cksum+old.quantity where ccid=old.ccid and prdtid=old.prdtid;
-  update onway_products set cksum=cksum-new.quantity where ccid=new.ccid and prdtid=new.prdtid;
+  update onway_products set cksum=cksum-old.quantity where ccid=old.ccid and prdtid=old.prdtid;
+  update onway_products set cksum=cksum+new.quantity where ccid=new.ccid and prdtid=new.prdtid;
 END;
 
 

@@ -1,5 +1,7 @@
 package data
 
+import "fmt"
+
 type Contract0 struct {
 	CcId     string
 	CstmId   int
@@ -131,7 +133,7 @@ type OnwayProduct struct {
 	CstmName string
 	Quantity int
 	CkSum    int
-	PrdtId   int
+	PrdtId   string
 	PrdtName string
 	Specific string
 	Vector   int
@@ -277,14 +279,16 @@ func (r *Outgo) Insert() (err error) {
 }
 
 func (r *Outgo) Select() (outgos []Outgo, err error) {
-	rows, err := Db.Query("SELECT *, (SELECT prdtname FROM products WHERE products.prdtid = outgos.prdtid limit 1) AS prdtname, (SELECT specific FROM products WHERE  products.prdtid = outgos.prdtid limit 1) AS specific, (SELECT cstmname FROM customers WHERE customers.cstmid=(select cstmid from contracts where contracts.ccid = outgos.ccid limit 1) limit 1) AS cstmname, (select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = outgos.ccid limit 1) limit 1) as srcname,(select price form contracts where contracts.ccid = outgos.ccid limit 1) as price FROM outgos WHERE ccid LIKE ? AND ogdate LIKE ? AND prdtid in (select prdtid from products where prdtname LIKE ? AND specific LIKE ?)  AND pnumber LIKE ? AND remark LIKE ? and ccid in (select ccid from contracts where contracts.cstmid in (select cstmid from customers where customers.cstmname like ?)) and ccid in (select ccid from contracts0 where contracts0.cstmid in (select cstmid from customers where customers.cstmname like ?))  order by ogdate desc", "%"+r.CcId+"%", "%"+r.OgDate+"%", "%"+r.PrdtName+"%", "%"+r.Specific+"%", "%"+r.Pnumber+"%", "%"+r.Remark+"%", "%"+r.CstmName+"%", "%"+r.SrcName+"%")
+	rows, err := Db.Query("SELECT *, (SELECT prdtname FROM products WHERE products.prdtid = outgos.prdtid limit 1) AS prdtname, (SELECT specific FROM products WHERE  products.prdtid = outgos.prdtid limit 1) AS specific, (SELECT cstmname FROM customers WHERE customers.cstmid=(select cstmid from contracts where contracts.ccid = outgos.ccid limit 1) limit 1) AS cstmname, (select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = outgos.ccid limit 1) limit 1) as srcname,(select price from contracts where contracts.ccid = outgos.ccid limit 1) as price FROM outgos WHERE ccid LIKE ? AND ogdate LIKE ? AND prdtid in (select prdtid from products where prdtname LIKE ? AND specific LIKE ?)  AND pnumber LIKE ? AND remark LIKE ? and ccid in (select ccid from contracts where contracts.cstmid in (select cstmid from customers where customers.cstmname like ?)) and ccid in (select ccid from contracts0 where contracts0.cstmid in (select cstmid from customers where customers.cstmname like ?))  order by ogdate desc", "%"+r.CcId+"%", "%"+r.OgDate+"%", "%"+r.PrdtName+"%", "%"+r.Specific+"%", "%"+r.Pnumber+"%", "%"+r.Remark+"%", "%"+r.CstmName+"%", "%"+r.SrcName+"%")
 	defer rows.Close()
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 	for rows.Next() {
 		outgo := Outgo{}
 		if err = rows.Scan(&outgo.Id, &outgo.CcId, &outgo.OgDate, &outgo.PrdtId, &outgo.Pnumber, &outgo.Quantity, &outgo.ExpName, &outgo.ExpNumber, &outgo.Remark, &outgo.PrdtName, &outgo.Specific, &outgo.CstmName, &outgo.SrcName, &outgo.Price); err != nil {
+			fmt.Println(err)
 			return
 		}
 		outgos = append(outgos, outgo)
@@ -294,9 +298,10 @@ func (r *Outgo) Select() (outgos []Outgo, err error) {
 }
 
 func GetAllOutgo() (outgos []Outgo, err error) {
-	rows, err := Db.Query("SELECT *, (SELECT prdtname FROM products WHERE products.prdtid = outgos.prdtid limit 1) AS prdtname, (SELECT specific FROM products WHERE  products.prdtid = outgos.prdtid limit 1) AS specific, (SELECT cstmname FROM customers WHERE customers.cstmid=(select cstmid from contracts where contracts.ccid = outgos.ccid limit 1) limit 1) AS cstmname, (select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = outgos.ccid limit 1) limit 1) as srcname,(select price form contracts where contracts.ccid = outgos.ccid limit 1) as price from outgos order by ogdate desc")
+	rows, err := Db.Query("SELECT *, (SELECT prdtname FROM products WHERE products.prdtid = outgos.prdtid limit 1) AS prdtname, (SELECT specific FROM products WHERE  products.prdtid = outgos.prdtid limit 1) AS specific, (SELECT cstmname FROM customers WHERE customers.cstmid=(select cstmid from contracts where contracts.ccid = outgos.ccid limit 1) limit 1) AS cstmname, (select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = outgos.ccid limit 1) limit 1) as srcname,(select price from contracts where contracts.ccid = outgos.ccid limit 1) as price from outgos order by ogdate desc")
 	defer rows.Close()
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 	for rows.Next() {
@@ -628,6 +633,25 @@ func GetAllContract0() (contracts0 []Contract0, err error) {
 	return
 }
 
+func GetAllCcId() (contracts0 []Contract0, err error) {
+
+	rows, err := Db.Query("SELECT ccid FROM contracts0")
+	defer rows.Close()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	for rows.Next() {
+		contract0 := Contract0{}
+		if err = rows.Scan(&contract0.CcId); err != nil {
+			return
+		}
+		contracts0 = append(contracts0, contract0)
+	}
+
+	return
+}
+
 func (r *Contract0) Update() (err error) {
 	_, err = Db.Exec("UPDATE contracts0 set cstmid=(select cstmid from customers where customers.cstmname like ? limit 1),vector=?,remark=? where ccid=?", "%"+r.CstmName+"%", r.Vector, r.Remark, r.CcId)
 	return
@@ -751,9 +775,10 @@ func (r *Debt) Delete() (err error) {
 }
 
 func (r *OnwayProduct) Select() (onwayProducts []OnwayProduct, err error) {
-	rows, err := Db.Query("select id, ccid, prdtid, quantity, isum,remark, (select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = inway_products.ccid limit 1) limit 1) as srcname, (select cstmname from customers where customers.cstmid = inwayproducts.ccid limit 1) as cstmname,(select prdtname from products where products.prdtid=inwayproducts.prdtid) as prdtname,(select specific from products where products.prdtid=inwayproducts.prdtid) as specific FROM inwayproducts where (quantity-isum) <> 0 and ccid like ? and prdtid in (select prdtid from products where products.prdtname like ? and products.specific like ?) and ccid in (select ccid from contracts0 where contracts0.cstmid in (select cstmid from customers where customers.cstmname like ?) and contracts0.Vector=?) and ccid in (select ccid from contracts where contracts.cstmid in (select cstmid from customers where customers.cstmname like ?))", "%"+r.CcId+"%", "%"+r.PrdtName+"%", "%"+r.Specific+"%", "%"+r.SrcName+"%", r.Vector, "%"+r.CstmName+"%")
+	rows, err := Db.Query("select id,ccid, prdtid, quantity, cksum,remark, (select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = onway_products.ccid limit 1) limit 1) as srcname, (select cstmname from customers where customers.cstmid =(select cstmid from contracts where contracts.ccid=onway_products.ccid limit 1) limit 1) as cstmname,(select prdtname from products where products.prdtid=onway_products.prdtid) as prdtname,(select specific from products where products.prdtid=onway_products.prdtid) as specific FROM onway_products where (quantity-cksum) <> 0 and ccid like ? and prdtid in (select prdtid from products where products.prdtname like ? and products.specific like ?) and ccid in (select ccid from contracts0 where contracts0.cstmid in (select cstmid from customers where customers.cstmname like ?) and contracts0.Vector=?) and ccid in (select ccid from contracts where contracts.cstmid in (select cstmid from customers where customers.cstmname like ?))", "%"+r.CcId+"%", "%"+r.PrdtName+"%", "%"+r.Specific+"%", "%"+r.SrcName+"%", r.Vector, "%"+r.CstmName+"%")
 	defer rows.Close()
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 	for rows.Next() {
@@ -768,9 +793,10 @@ func (r *OnwayProduct) Select() (onwayProducts []OnwayProduct, err error) {
 }
 
 func GetAllOnwayProducts(vector int) (onwayProducts []OnwayProduct, err error) {
-	rows, err := Db.Query("select id,ccid, prdtid, quantity, isum,remark, (select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = inway_products.ccid limit 1) limit 1) as srcname, (select cstmname from customers where customers.cstmid = inwayproducts.ccid limit 1) as cstmname,(select prdtname from products where products.prdtid=inwayproducts.prdtid) as prdtname,(select specific from products where products.prdtid=inwayproducts.prdtid) as specific FROM inwayproducts where (quantity-isum) <> 0 and ccid in (select ccid from contracts0 where contracts0.Vector=?)", vector)
+	rows, err := Db.Query("select id,ccid, prdtid, quantity, cksum,remark, (select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = onway_products.ccid limit 1) limit 1) as srcname, (select cstmname from customers where customers.cstmid =(select cstmid from contracts where contracts.ccid=onway_products.ccid limit 1) limit 1) as cstmname,(select prdtname from products where products.prdtid=onway_products.prdtid) as prdtname,(select specific from products where products.prdtid=onway_products.prdtid) as specific FROM onway_products where (quantity-cksum) <> 0 and ccid in (select ccid from contracts0 where contracts0.Vector=?)", vector)
 	defer rows.Close()
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 	for rows.Next() {
@@ -785,9 +811,10 @@ func GetAllOnwayProducts(vector int) (onwayProducts []OnwayProduct, err error) {
 }
 
 func (r *OnwayInvoice) Select() (onwayInvoices []OnwayInvoice, err error) {
-	rows, err := Db.Query("select id, ccid, csum,osum,remark, (select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = inway_invoices.ccid limit 1) limit 1) as srcname, (select cstmname from customers where customers.cstmid = inway_invoices.ccid limit 1) as cstmname FROM inway_invoices where (csum-osum) <> 0 and ccid like ? and  ccid in (select ccid from contracts0 where contracts0.cstmid in (select cstmid from customers where customers.cstmname like ?) and contracts0.vector=?) and ccid in (select ccid from contracts where contracts.cstmid in (select cstmid from customers where customers.cstmname like ?))", "%"+r.CcId+"%", "%"+r.SrcName+"%", r.Vector, "%"+r.CstmName+"%")
+	rows, err := Db.Query("select id,ccid, csum,cksum, remark,(select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = onway_invoices.ccid limit 1) limit 1) as srcname, (select cstmname from customers where customers.cstmid = (select cstmid from contracts where contracts.ccid=onway_invoices.ccid limit 1) limit 1) as cstmname FROM onway_invoices where (csum-cksum) <> 0 and ccid like ? and  ccid in (select ccid from contracts0 where contracts0.cstmid in (select cstmid from customers where customers.cstmname like ?) and contracts0.vector=?) and ccid in (select ccid from contracts where contracts.cstmid in (select cstmid from customers where customers.cstmname like ?))", "%"+r.CcId+"%", "%"+r.SrcName+"%", r.Vector, "%"+r.CstmName+"%")
 	defer rows.Close()
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 	for rows.Next() {
@@ -802,9 +829,10 @@ func (r *OnwayInvoice) Select() (onwayInvoices []OnwayInvoice, err error) {
 }
 
 func GetAllOnwayInvoices(vector int) (onwayInvoices []OnwayInvoice, err error) {
-	rows, err := Db.Query("select id,ccid, csum,osum, remark,(select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = inway_invoices.ccid limit 1) limit 1) as srcname, (select cstmname from customers where customers.cstmid = inway_invoices.ccid limit 1) as cstmname FROM inway_invoices where (csum-osum) <> 0 and  ccid in (select ccid from contracts0 where contracts0.vector=?)", vector)
+	rows, err := Db.Query("select id,ccid, csum,cksum, remark,(select cstmname from customers where customers.cstmid = (select cstmid from contracts0 where contracts0.ccid = onway_invoices.ccid limit 1) limit 1) as srcname, (select cstmname from customers where customers.cstmid = (select cstmid from contracts where contracts.ccid=onway_invoices.ccid limit 1) limit 1) as cstmname FROM onway_invoices where (csum-cksum) <> 0 and  ccid in (select ccid from contracts0 where contracts0.vector=?)", vector)
 	defer rows.Close()
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 	for rows.Next() {

@@ -1,0 +1,12 @@
+drop table contracts0;
+drop table contracts;
+drop table incomes;
+drop table outgos;
+drop table invoices;
+drop table payments;
+drop table products;
+drop table customers;
+drop table stocks;
+drop table debts;
+drop table onway_products;
+drop table onway_invoices;

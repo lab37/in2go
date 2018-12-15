@@ -42,6 +42,11 @@ $("#cstmname").autocomplete({
   source: cstmSelects
 });
 
+let allCcId= getAllCcId();
+$("#ccid").autocomplete({
+  source: allCcId
+});
+
 let prdtObjects = getProductNS();
 let prdtNames = new Array();
 for (var i = 0; i < prdtObjects.length; i++) {

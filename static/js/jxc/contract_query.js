@@ -56,7 +56,7 @@ function queryContract(e) {
         newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
         newContent += '<td name="victor">' + (responseObject[i].Vector==0?"购进":"售出") + '</td>';
         newContent += '<td name="srcname">' + responseObject[i].SrcName + '</td>';
-        newContent += '<td name="ccdate">' + responseObject[i].ccdate + '</td>';
+        newContent += '<td name="ccdate">' + responseObject[i].CcDate + '</td>';
         newContent += '<td name="cctype">' + responseObject[i].CcType + '</td>';
         newContent += '<td name="cstmname">' + responseObject[i].CstmName + '</td>';
         newContent += '<td name="prdtname">' + responseObject[i].PrdtName + '</td>';
@@ -90,6 +90,11 @@ $("#cstmname").autocomplete({
 });
 $("#srcname").autocomplete({
   source: cstmSelects
+});
+
+let allCcId= getAllCcId();
+$("#ccid").autocomplete({
+  source: allCcId
 });
 
 var el = document.getElementById('contract_query_some');

@@ -1,10 +1,10 @@
-function inwayInvoiceQuery(e) {
+function outwayInvoiceQuery(e) {
 
   let tgt = getTarget(e);
   var postStr;
   postStr = 'topic=' + encodeURIComponent('onway_invoice');
-  postStr += 'vector=0';
-  if (tgt.id == 'inway_invoice_query_all') {
+  postStr += '&vector=1';
+  if (tgt.id == 'outway_invoice_query_all') {
     postStr = postStr + '&tt=' + encodeURIComponent('all');
   } else {
     let t2f = true;
@@ -32,6 +32,7 @@ function inwayInvoiceQuery(e) {
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
       newContent += '<tr class="table_title">';
+      newContent += '<td>合同号码</td>';
       newContent += '<td>售方名称</td>';
       newContent += '<td>购方名称</td>';
       newContent += '<td>合同金额</td>';
@@ -42,17 +43,18 @@ function inwayInvoiceQuery(e) {
       newContent += '</tr>';
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].Id + '">';
+        newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
         newContent += '<td name="srcname">' + responseObject[i].SrcName + '</td>';
         newContent += '<td name="cstmname">' + responseObject[i].CstmName + '</td>';
         newContent += '<td name="csum">' + responseObject[i].Csum + '</td>';
         newContent += '<td name="cksum">' + responseObject[i].CkSum + '</td>';
-        newContent += '<td name="gap">' +(responseObject[i].Csum - responseObject[i].Osum) + '</td>';
-        newContent += '<td name="remark">' +responseObject[i].Remark + '</td>';
+        newContent += '<td name="gap">' +(responseObject[i].Csum - responseObject[i].CkSum) + '</td>';
+        newContent += '<td name="remark">' + responseObject[i].Remark + '</td>';
 
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('inway_invoice_results').innerHTML = newContent;
+      document.getElementById('outway_invoice_results').innerHTML = newContent;
       $('#export').show();
     }
   };
@@ -64,7 +66,7 @@ function inwayInvoiceQuery(e) {
 };
 $('#export').hide();
 $('#export').click(function(){
-  table2xlsx('xlsx','inway_invoice_results');
+  table2xlsx('xlsx','outway_invoice_results');
 });
 let cstmSelects = getCustomerName();
 $("#cstmname").autocomplete({
@@ -74,27 +76,30 @@ $("#srcname").autocomplete({
   source: cstmSelects
 });
 
-var el = document.getElementById('inway_invoice_query_some');
+let allCcId= getAllCcId();
+$("#ccid").autocomplete({
+  source: allCcId
+});
+
+var el = document.getElementById('outway_invoice_query_some');
 if (el.addEventListener) {
   el.addEventListener('click', function (e) {
-    inwayInvoiceQuery(e);
+    outwayInvoiceQuery(e);
   }, false);
 } else {
   el.attachEvent('onclick', function (e) {
-    inwayInvoiceQuery(e);
+    outwayInvoiceQuery(e);
   });
 }
 
-var el2 = document.getElementById('inway_invoice_query_all');
+var el2 = document.getElementById('outway_invoice_query_all');
 if (el2.addEventListener) {
   el2.addEventListener('click', function (e) {
-    inwayInvoiceQuery(e);
+    outwayInvoiceQuery(e);
   }, false);
 } else {
   el2.attachEvent('onclick', function (e) {
-    inwayInvoiceQuery(e);
+    outwayInvoiceQuery(e);
   });
 }
-
-
 $("#change_table").hide();

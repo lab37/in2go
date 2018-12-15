@@ -545,9 +545,8 @@ func insertItem(writer http.ResponseWriter, request *http.Request) {
 			}
 		case "outgo":
 			outgo := data.Outgo{}
-			product := data.Product{}
-			product.PrdtName = strings.TrimFunc(request.PostFormValue("prdtname"), unicode.IsSpace)
-			product.Specific = strings.TrimFunc(request.PostFormValue("specific"), unicode.IsSpace)
+			outgo.PrdtName = strings.TrimFunc(request.PostFormValue("prdtname"), unicode.IsSpace)
+			outgo.Specific = strings.TrimFunc(request.PostFormValue("specific"), unicode.IsSpace)
 
 			outgo.CcId = strings.TrimFunc(request.PostFormValue("ccid"), unicode.IsSpace)
 			outgo.OgDate = strings.TrimFunc(request.PostFormValue("ogdate"), unicode.IsSpace)
@@ -809,7 +808,7 @@ func getCustomerName(writer http.ResponseWriter, request *http.Request) {
 	} else {
 		rsts, err := data.GetCustomerName()
 		if err != nil {
-			danger(err, "Cannot get all contract")
+			danger(err, "Cannot get all customername")
 		}
 		resp, _ := json.Marshal(rsts)
 		fmt.Fprintf(writer, string(resp))
@@ -823,7 +822,21 @@ func getProductNS(writer http.ResponseWriter, request *http.Request) {
 	} else {
 		rsts, err := data.GetProductNS()
 		if err != nil {
-			danger(err, "Cannot get all contract")
+			danger(err, "Cannot get all prdtns")
+		}
+		resp, _ := json.Marshal(rsts)
+		fmt.Fprintf(writer, string(resp))
+	}
+}
+
+func getAllCcId(writer http.ResponseWriter, request *http.Request) {
+	_, err := session(writer, request)
+	if err != nil {
+		http.Redirect(writer, request, "/login", 302)
+	} else {
+		rsts, err := data.GetAllCcId()
+		if err != nil {
+			danger(err, "Cannot get all contractccid")
 		}
 		resp, _ := json.Marshal(rsts)
 		fmt.Fprintf(writer, string(resp))

@@ -1,32 +1,27 @@
-function income_query(e) {
-  
+function stockQuery(e) {
+
   let tgt = getTarget(e);
   var postStr;
-  if (tgt.id == 'income_query_all') {
-    postStr = 'topic=' + encodeURIComponent('income');
+  postStr = 'topic=' + encodeURIComponent('stock');
+  if (tgt.id == 'stock_query_all') {
     postStr = postStr + '&tt=' + encodeURIComponent('all');
   } else {
     let t2f = true;
-  $(".input").each(function() {
-    t2f = checkInput(this);
-    if (!t2f) {
-      return false;
+    $("input").each(function () {
+      t2f = checkInput(this);
+      if (!t2f) {
+        return false;
+      }
+    });
+    if (t2f) {
+      alert('请至少填写一项，查询全部请直接点击查询全部按钮');
+      return;
     }
-  });
-  if (t2f) {
-    alert('请至少填写一项，查询全部请直接点击查询全部按钮');
-		return;
-  }
-    postStr = 'topic=' + encodeURIComponent('income');
     postStr = postStr + '&tt=' + encodeURIComponent('some');
-    postStr = postStr + '&ccid=' + encodeURIComponent(document.getElementById("ccid").value.replace(/\s+/g,""));
-    postStr = postStr + '&srcname=' + encodeURIComponent(document.getElementById("srcname").value.replace(/\s+/g,""));
-    postStr = postStr + '&cstmname=' + encodeURIComponent(document.getElementById("cstmname").value.replace(/\s+/g,""));
-    postStr = postStr + '&icdate=' + encodeURIComponent(document.getElementById("icdate").value.replace(/\s+/g,""));
-    postStr = postStr + '&prdtname=' + encodeURIComponent(document.getElementById("prdtname").value.replace(/\s+/g,""));
-    postStr = postStr + '&specific=' + encodeURIComponent(document.getElementById("specific").value.replace(/\s+/g,""));
-    postStr = postStr + '&pnumber=' + encodeURIComponent(document.getElementById("pnumber").value.replace(/\s+/g,""));
-    postStr = postStr + '&remark=' + encodeURIComponent(document.getElementById("remark").value.replace(/\s+/g,""));
+    postStr = postStr + '&cstmname=' + encodeURIComponent(document.getElementById("cstmname").value.replace(/\s+/g, ""));
+    postStr = postStr + '&prdtname=' + encodeURIComponent(document.getElementById("prdtname").value.replace(/\s+/g, ""));
+    postStr = postStr + '&specific=' + encodeURIComponent(document.getElementById("specific").value.replace(/\s+/g, ""));
+    postStr = postStr + '&remark=' + encodeURIComponent(document.getElementById("remark").value.replace(/\s+/g, ""));
   }
 
   var xhr = new XMLHttpRequest();
@@ -37,36 +32,29 @@ function income_query(e) {
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
       newContent += '<tr class="table_title">';
-      newContent += '<td>合同编号</td>';
-      newContent += '<td>上游客户</td>';
-      newContent += '<td>销售客户</td>';
-      newContent += '<td>入库日期</td>';
-      newContent += '<td>产品名称</td>';
-      newContent += '<td>规格</td>';
-      newContent += '<td>价格</td>';
-      newContent += '<td>数量</td>';
-      newContent += '<td>批号</td>';
+      newContent += '<td>仓库名称</td>';
+      newContent += '<td>品种名称</td>';
+      newContent += '<td>品种规格</td>';
+      newContent += '<td>产品批号</td>';
+      newContent += '<td>库存数量</td>';
       newContent += '<td>备注</td>';
-      newContent += '<td>操作</td>';
+      // newContent += '<td>操作</td>';
       newContent += '</tr>';
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].Id + '">';
-        newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
-        newContent += '<td name="srcname">' + responseObject[i].SrcName + '</td>';
         newContent += '<td name="cstmname">' + responseObject[i].CstmName + '</td>';
-        newContent += '<td name="icdate">' + responseObject[i].icdate + '</td>';
         newContent += '<td name="prdtname">' + responseObject[i].PrdtName + '</td>';
         newContent += '<td name="specific">' + responseObject[i].Specific + '</td>';
-        newContent += '<td name="price">' + responseObject[i].Price + '</td>';
-        newContent += '<td name="quantity">' + responseObject[i].Quantity + '</td>';
         newContent += '<td name="pnumber">' + responseObject[i].Pnumber + '</td>';
+        newContent += '<td name="quantity">' + responseObject[i].Quantity + '</td>';
+
         newContent += '<td name="remark">' + responseObject[i].Remark + '</td>';
-        newContent += '<td>' + '<input type="button" class="chg" onclick="upt(' +"'"+ responseObject[i].Id +"'"+ ')" value="修改" /> <input type="button" class="del" onclick="del(' +"'"+ responseObject[i].Id +"'"+ ')" value="删除" />' + '</td>';
+        newContent += '<td>' + '<input type="button" class="chg" onclick="upt(' +"'"+ responseObject[i].Id +"'"+ ')" value="修改" /> <input type="button" class="del" onclick="del(' +"'"+ responseObject[i].Id+"'" + ')" value="删除" />' + '</td>';
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('income_results').innerHTML = newContent;
-      $('#export').show()
+      document.getElementById('stocks_results').innerHTML = newContent;
+      $('#export').show();
     }
   };
 
@@ -79,36 +67,30 @@ $('#export').hide();
 $('#export').click(function(){
   table2xlsx('xlsx','income_results');
 });
-$("#icdate").datepicker();
-
 let cstmSelects = getCustomerName();
 $("#cstmname").autocomplete({
   source: cstmSelects
 });
-$("#srcname").autocomplete({
-  source: cstmSelects
-});
 
-
-var el = document.getElementById('income_query_some');
+var el = document.getElementById('stock_query_some');
 if (el.addEventListener) {
   el.addEventListener('click', function (e) {
-    income_query(e);
+    stockQuery(e);
   }, false);
 } else {
   el.attachEvent('onclick', function (e) {
-    income_query(e);
+    stockQuery(e);
   });
 }
 
-var el2 = document.getElementById('income_query_all');
+var el2 = document.getElementById('stock_query_all');
 if (el2.addEventListener) {
   el2.addEventListener('click', function (e) {
-    income_query(e);
+    stockQuery(e);
   }, false);
 } else {
   el2.attachEvent('onclick', function (e) {
-    income_query(e);
+    stockQuery(e);
   });
 }
 
@@ -128,10 +110,9 @@ function upt(id) {
 
 function sv(id) {
   $.post("updateitem",{
-  topic:'income',
+  topic:'stock',
   id:id,
-  ccid : document.getElementById("updateccid").value.replace(/\s+/g,""),
-  icdate : document.getElementById("updateicdate").value.replace(/\s+/g,""),
+  cstmname : document.getElementById("updatecstmname").value.replace(/\s+/g,""),
   prdtname : document.getElementById("updateprdtname").value.replace(/\s+/g,""),
   specific : document.getElementById("updatespecific").value.replace(/\s+/g,""),
   quantity : document.getElementById("updatequantity").value.replace(/\s+/g,""),
@@ -156,7 +137,7 @@ function del(id) {
   if (cfm == true) {
     $.post("deleteitem",
       {
-        topic: "income",
+        topic: "stock",
         id: id
       },
       function (data, status) {

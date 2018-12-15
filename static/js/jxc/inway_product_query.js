@@ -1,10 +1,10 @@
-function outwayProductQuery(e) {
+function inwayProductQuery(e) {
 
   let tgt = getTarget(e);
   var postStr;
   postStr = 'topic=' + encodeURIComponent('onway_product');
-  postStr += 'vector=1';
-  if (tgt.id == 'outway_product_query_all') {
+  postStr += '&vector=0';
+  if (tgt.id == 'inway_product_query_all') {
     postStr = postStr + '&tt=' + encodeURIComponent('all');
   } else {
     let t2f = true;
@@ -34,6 +34,7 @@ function outwayProductQuery(e) {
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
       newContent += '<tr class="table_title">';
+      newContent += '<td>合同号码</td>';
       newContent += '<td>售方名称</td>';
       newContent += '<td>购方名称</td>';
       newContent += '<td>品种名称</td>';
@@ -46,6 +47,7 @@ function outwayProductQuery(e) {
       newContent += '</tr>';
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].Id + '">';
+        newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
         newContent += '<td name="srcname">' + responseObject[i].SrcName + '</td>';
         newContent += '<td name="cstmname">' + responseObject[i].CstmName + '</td>';
         newContent += '<td name="prdtname">' + responseObject[i].PrdtName + '</td>';
@@ -58,7 +60,7 @@ function outwayProductQuery(e) {
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('outway_product_results').innerHTML = newContent;
+      document.getElementById('inway_product_results').innerHTML = newContent;
       $('#export').show();
     }
   };
@@ -70,7 +72,7 @@ function outwayProductQuery(e) {
 };
 $('#export').hide();
 $('#export').click(function(){
-  table2xlsx('xlsx','outway_product_results');
+  table2xlsx('xlsx','inway_product_results');
 });
 let cstmSelects = getCustomerName();
 $("#cstmname").autocomplete({
@@ -80,28 +82,25 @@ $("#srcname").autocomplete({
   source: cstmSelects
 });
 
-var el = document.getElementById('outway_product_query_some');
+var el = document.getElementById('inway_product_query_some');
 if (el.addEventListener) {
   el.addEventListener('click', function (e) {
-    outwayProductQuery(e);
+    inwayProductQuery(e);
   }, false);
 } else {
   el.attachEvent('onclick', function (e) {
-    outwayProductQuery(e);
+    inwayProductQuery(e);
   });
 }
 
-var el2 = document.getElementById('outway_product_query_all');
+var el2 = document.getElementById('inway_product_query_all');
 if (el2.addEventListener) {
   el2.addEventListener('click', function (e) {
-    outwayProductQuery(e);
+    inwayProductQuery(e);
   }, false);
 } else {
   el2.attachEvent('onclick', function (e) {
-    outwayProductQuery(e);
+    inwayProductQuery(e);
   });
 }
-
-
-
 $("#change_table").hide();

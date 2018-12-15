@@ -10,8 +10,8 @@ func main() {
 
 	// handle static assets
 	mux := http.NewServeMux()
-	// files := http.FileServer(http.Dir(config.Static))
-	// mux.Handle("/static/", http.StripPrefix("/static/", files))
+	files := http.FileServer(http.Dir(config.Static))
+	mux.Handle("/static/", http.StripPrefix("/static/", files))
 
 	//
 	// all route patterns matched here
@@ -33,6 +33,7 @@ func main() {
 	mux.HandleFunc("/insertitem", insertItem)
 	mux.HandleFunc("/selectitem", selectItem)
 	mux.HandleFunc("/getcustomername", getCustomerName)
+	mux.HandleFunc("/getallccid", getAllCcId)
 	mux.HandleFunc("/getproductns", getProductNS)
 	mux.HandleFunc("/deleteitem", deleteItem)
 	mux.HandleFunc("/updateitem", updateItem)

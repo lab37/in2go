@@ -1,32 +1,32 @@
-function invoice_query(e) {
- 
+function outgo_query(e) {
+  
   let tgt = getTarget(e);
   var postStr;
-  if (tgt.id == 'invoice_query_all') {
-    postStr = 'topic=' + encodeURIComponent('invoice');
+  if (tgt.id == 'outgo_query_all') {
+    postStr = 'topic=' + encodeURIComponent('outgo');
     postStr = postStr + '&tt=' + encodeURIComponent('all');
   } else {
     let t2f = true;
-    $(".input").each(function() {
-      t2f = checkInput(this);
-      if (!t2f) {
-        return false;
-      }
-    });
-    if (t2f) {
-      alert('请至少填写一项，查询全部请直接点击查询全部按钮');
-      return;
+  $(".input").each(function() {
+    t2f = checkInput(this);
+    if (!t2f) {
+      return false;
     }
-    postStr = 'topic=' + encodeURIComponent('invoice');
+  });
+  if (t2f) {
+    alert('请至少填写一项，查询全部请直接点击查询全部按钮');
+		return;
+  }
+    postStr = 'topic=' + encodeURIComponent('outgo');
     postStr = postStr + '&tt=' + encodeURIComponent('some');
-    postStr= postStr + '&ivid='+encodeURIComponent(document.getElementById("ivid").value.replace(/\s+/g,""));
-  postStr= postStr + '&ivdate='+encodeURIComponent(document.getElementById("ivdate").value.replace(/\s+/g,""));
-  postStr= postStr + '&srcname='+encodeURIComponent(document.getElementById("srcname").value.replace(/\s+/g,""));
-  postStr= postStr + '&cstmname='+encodeURIComponent(document.getElementById("cstmname").value.replace(/\s+/g,""));
-  postStr= postStr + '&ccid='+encodeURIComponent(document.getElementById("ccid").value.replace(/\s+/g,""));
-  postStr= postStr + '&postdate='+encodeURIComponent(document.getElementById("postdate").value.replace(/\s+/g,""));
-  postStr= postStr + '&remark='+encodeURIComponent(document.getElementById("remark").value.replace(/\s+/g,""));
-
+    postStr = postStr + '&ccid=' + encodeURIComponent(document.getElementById("ccid").value.replace(/\s+/g,""));
+    postStr = postStr + '&srcname=' + encodeURIComponent(document.getElementById("srcname").value.replace(/\s+/g,""));
+    postStr = postStr + '&cstmname=' + encodeURIComponent(document.getElementById("cstmname").value.replace(/\s+/g,""));
+    postStr = postStr + '&ogdate=' + encodeURIComponent(document.getElementById("ogdate").value.replace(/\s+/g,""));
+    postStr = postStr + '&prdtname=' + encodeURIComponent(document.getElementById("prdtname").value.replace(/\s+/g,""));
+    postStr = postStr + '&specific=' + encodeURIComponent(document.getElementById("specific").value.replace(/\s+/g,""));
+    postStr = postStr + '&pnumber=' + encodeURIComponent(document.getElementById("pnumber").value.replace(/\s+/g,""));
+    postStr = postStr + '&remark=' + encodeURIComponent(document.getElementById("remark").value.replace(/\s+/g,""));
   }
 
   var xhr = new XMLHttpRequest();
@@ -37,27 +37,31 @@ function invoice_query(e) {
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
       newContent += '<tr class="table_title">';
-      newContent += '<td>发票号码</td>';
-      newContent += '<td>开票单位</td>';
-      newContent += '<td>开票日期</td>';
       newContent += '<td>合同编号</td>';
-      newContent += '<td>收票单位</td>';
-      newContent += '<td>发票金额</td>';
-      newContent += '<td>邮寄日期</td>';
-      newContent += '<td>快递名称</td>';
-      newContent += '<td>快递单号</td>';
+      newContent += '<td>仓库名称</td>';
+      newContent += '<td>客户名称</td>';
+      newContent += '<td>出库日期</td>';
+      newContent += '<td>产品名称</td>';
+      newContent += '<td>规格</td>';
+      newContent += '<td>价格</td>';
+      newContent += '<td>数量</td>';
+      newContent += '<td>批号</td>';
+      newContent += '<td>物流名称</td>';
+      newContent += '<td>物流单号</td>';
       newContent += '<td>备注</td>';
       newContent += '<td>操作</td>';
       newContent += '</tr>';
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].Id + '">';
-        newContent += '<td name="ivid">' + responseObject[i].IvId + '</td>';
-        newContent += '<td name="srcname">' + responseObject[i].SrcName + '</td>';
-        newContent += '<td name="ivdate">' + responseObject[i].ivdate + '</td>';
         newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
+        newContent += '<td name="srcname">' + responseObject[i].SrcName + '</td>';
         newContent += '<td name="cstmname">' + responseObject[i].CstmName + '</td>';
-        newContent += '<td name="ivsum">' + responseObject[i].IvSum + '</td>';
-        newContent += '<td name="postdate">' + responseObject[i].postdate + '</td>';
+        newContent += '<td name="ogdate">' + responseObject[i].OgDate + '</td>';
+        newContent += '<td name="prdtname">' + responseObject[i].PrdtName + '</td>';
+        newContent += '<td name="specific">' + responseObject[i].Specific + '</td>';
+        newContent += '<td name="price">' + responseObject[i].Price + '</td>';
+        newContent += '<td name="quantity">' + responseObject[i].Quantity + '</td>';
+        newContent += '<td name="pnumber">' + responseObject[i].Pnumber + '</td>';
         newContent += '<td name="expname">' + responseObject[i].ExpName + '</td>';
         newContent += '<td name="expnumber">' + responseObject[i].ExpNumber + '</td>';
         newContent += '<td name="remark">' + responseObject[i].Remark + '</td>';
@@ -65,7 +69,7 @@ function invoice_query(e) {
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('invoice_results').innerHTML = newContent;
+      document.getElementById('outgo_results').innerHTML = newContent;
       $('#export').show();
     }
   };
@@ -77,38 +81,39 @@ function invoice_query(e) {
 };
 $('#export').hide();
 $('#export').click(function(){
-  table2xlsx('xlsx','invoice_results');
+  table2xlsx('xlsx','outgo_results');
 });
-$("#ivdate").datepicker();
-$("#postdate").datepicker();
+$("#ogdate").datepicker();
 
 let cstmSelects = getCustomerName();
 $("#cstmname").autocomplete({
   source: cstmSelects
 });
-$("#srcname").autocomplete({
-  source: cstmSelects
-});
 
-var el = document.getElementById('invoice_query_some');
+var el = document.getElementById('outgo_query_some');
 if (el.addEventListener) {
   el.addEventListener('click', function (e) {
-    invoice_query(e);
+    outgo_query(e);
   }, false);
 } else {
   el.attachEvent('onclick', function (e) {
-    invoice_query(e);
+    outgo_query(e);
   });
 }
 
-var el2 = document.getElementById('invoice_query_all');
+let allCcId= getAllCcId();
+$("#ccid").autocomplete({
+  source: allCcId
+});
+
+var el2 = document.getElementById('outgo_query_all');
 if (el2.addEventListener) {
   el2.addEventListener('click', function (e) {
-    invoice_query(e);
+    outgo_query(e);
   }, false);
 } else {
   el2.attachEvent('onclick', function (e) {
-    invoice_query(e);
+    outgo_query(e);
   });
 }
 
@@ -127,16 +132,18 @@ function upt(id) {
 
 function sv(id) {
   $.post("updateitem",{
-  topic:'invoice',
+  topic:'outgo',
   id:id,
-  ivid : document.getElementById("updateivid").value.replace(/\s+/g,""),
-  ivdate : document.getElementById("updateivdate").value.replace(/\s+/g,""),
   ccid : document.getElementById("updateccid").value.replace(/\s+/g,""),
-  ivsum : document.getElementById("updateivsum").value.replace(/\s+/g,""),
-  postdate : document.getElementById("updatepostdate").value.replace(/\s+/g,""),
+  ogdate : document.getElementById("updateogdate").value.replace(/\s+/g,""),
+  prdtname : document.getElementById("updateprdtname").value.replace(/\s+/g,""),
+  specific : document.getElementById("updatespecific").value.replace(/\s+/g,""),
+  quantity : document.getElementById("updatequantity").value.replace(/\s+/g,""),
+  pnumber : document.getElementById("updatepnumber").value.replace(/\s+/g,""),
   expname : document.getElementById("updateexpname").value.replace(/\s+/g,""),
   expnumber : document.getElementById("updateexpnumber").value.replace(/\s+/g,""),
   remark : document.getElementById("updateremark").value.replace(/\s+/g,"")
+
   },
   function(data,status){
     alert(data);
@@ -147,16 +154,16 @@ function sv(id) {
 }
 
 $("#change_table").hide();
-
 function hd(){
   $("#change_table").hide();
   }
+
 function del(id) {
   var cfm = confirm("确认要删这条记录吗？");
   if (cfm == true) {
     $.post("deleteitem",
       {
-        topic: "invoice",
+        topic: "outgo",
         id: id
       },
       function (data, status) {

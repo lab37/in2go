@@ -1,0 +1,251 @@
+ERROR 2018/11/11 10:46:45 utils.go:100: sql: Scan error on column index 0, name "prdtid": destination not a pointer Cant get prdtid
+ERROR 2018/11/11 10:46:45 utils.go:100: sql: expected 8 arguments, got 7 Cannot insert contract
+ERROR 2018/11/11 10:49:26 utils.go:100: sql: expected 8 arguments, got 7 Cannot insert contract
+ERROR 2018/11/22 15:02:15 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:04:19 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:10:02 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:15:51 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:15:56 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:21:05 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:21:18 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:23:41 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:24:47 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:49 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:54 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:55 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:55 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:55 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:55 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:55 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:56 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:56 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:26:56 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:13 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:16 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:16 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:16 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:17 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:17 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:17 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:17 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:17 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:18 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:18 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:28:25 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 15:30:52 utils.go:100: sql: expected 9 destination arguments in Scan, not 8 Cannot get all contract
+ERROR 2018/11/22 22:05:25 utils.go:100: near "（SELECT": syntax error Cannot get all contract
+ERROR 2018/11/22 22:06:01 utils.go:100: near "（SELECT": syntax error Cannot get all contract
+ERROR 2018/11/22 22:07:27 utils.go:100: near "（SELECT": syntax error Cannot get all contract
+ERROR 2018/11/22 22:14:22 utils.go:100: near ")": syntax error Cannot get all contract
+ERROR 2018/11/22 22:17:30 utils.go:100: near ")": syntax error Cannot get all contract
+ERROR 2018/11/25 14:23:57 utils.go:100: sql: Scan error on column index 8, name "ivtype": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 14:23:59 utils.go:100: sql: Scan error on column index 8, name "ivtype": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 14:26:24 utils.go:100: sql: Scan error on column index 8, name "ivtype": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 14:49:37 utils.go:100: sql: Scan error on column index 6, name "boxnumb": converting driver.Value type []uint8 ("") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/25 14:51:16 utils.go:100: sql: Scan error on column index 6, name "boxnumb": converting driver.Value type []uint8 ("") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/25 15:09:45 utils.go:100: sql: Scan error on column index 6, name "boxnumb": converting driver.Value type []uint8 ("") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/25 15:09:59 utils.go:100: sql: Scan error on column index 6, name "boxnumb": converting driver.Value type []uint8 ("") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/25 15:10:07 utils.go:100: sql: expected 10 destination arguments in Scan, not 9 Cannot get all contract
+ERROR 2018/11/25 15:11:00 utils.go:100: sql: expected 10 destination arguments in Scan, not 9 Cannot get all contract
+ERROR 2018/11/25 15:12:03 utils.go:100: sql: Scan error on column index 6, name "boxnumb": converting driver.Value type []uint8 ("") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/25 15:12:15 utils.go:100: sql: expected 10 destination arguments in Scan, not 9 Cannot get all contract
+ERROR 2018/11/25 15:12:33 utils.go:100: sql: Scan error on column index 6, name "boxnumb": converting driver.Value type []uint8 ("") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/25 15:12:40 utils.go:100: sql: expected 10 destination arguments in Scan, not 9 Cannot get all contract
+ERROR 2018/11/25 15:24:01 utils.go:100: sql: Scan error on column index 6, name "boxnumb": converting driver.Value type []uint8 ("") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/25 15:25:56 utils.go:100: sql: Scan error on column index 6, name "boxnumb": converting driver.Value type []uint8 ("") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/25 15:27:15 utils.go:100: sql: expected 10 destination arguments in Scan, not 9 Cannot get all contract
+ERROR 2018/11/25 17:20:33 utils.go:100: sql: no rows in result set Cant get prdtid
+ERROR 2018/11/25 17:20:36 utils.go:100: sql: no rows in result set Cant get prdtid
+ERROR 2018/11/25 17:20:48 utils.go:100: sql: no rows in result set Cant get prdtid
+ERROR 2018/11/25 17:20:52 utils.go:100: sql: no rows in result set Cant get prdtid
+ERROR 2018/11/25 17:23:44 utils.go:100: sql: no rows in result set Cant get prdtid
+ERROR 2018/11/25 19:10:12 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:23:54 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:30:51 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:31:19 utils.go:100: sql: expected 11 destination arguments in Scan, not 10 Cannot get some contract
+ERROR 2018/11/25 19:38:53 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:41:18 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:42:34 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:43:29 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:45:42 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:46:18 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:46:21 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:47:56 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:50:34 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:56:53 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 19:58:48 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 20:00:36 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 20:02:38 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 20:06:28 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 22:02:45 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 22:12:27 utils.go:100: sql: expected 11 destination arguments in Scan, not 10 Cannot get some contract
+ERROR 2018/11/25 22:16:25 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 22:17:27 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/25 22:17:44 utils.go:100: sql: expected 11 destination arguments in Scan, not 10 Cannot get some contract
+ERROR 2018/11/26 11:44:56 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:44:58 utils.go:100: no such column: contracts.ccsi Cannot get all contract
+ERROR 2018/11/26 11:45:00 utils.go:100: no such column: contracts.ccsi Cannot get all contract
+ERROR 2018/11/26 11:45:23 utils.go:100: sql: Scan error on column index 11, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:45:28 utils.go:100: sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:45:39 utils.go:100: sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:45:39 utils.go:100: sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:45:39 utils.go:100: sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:45:51 utils.go:100: sql: Scan error on column index 5, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:46:10 utils.go:100: no such column: contracts.ccsi Cannot get all contract
+ERROR 2018/11/26 11:47:42 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:47:44 utils.go:100: sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:47:47 utils.go:100: sql: Scan error on column index 11, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:47:49 utils.go:100: sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 11:47:51 utils.go:100: sql: Scan error on column index 5, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 22:21:40 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:22:03 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/26 22:23:36 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:26:27 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:27:37 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:27:40 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:27:42 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:45:21 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:49:36 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:49:43 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:50:38 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/26 22:52:56 utils.go:100: When exchange the prdtid get an err in insert contract sql: no rows in result set
+ERROR 2018/11/27 09:44:16 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 09:56:25 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 10:15:08 utils.go:100: When select all payments get an error sql: Scan error on column index 5, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/27 10:34:45 utils.go:100: When select all payments get an error sql: Scan error on column index 5, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/27 10:55:43 utils.go:100: When select all payments get an error sql: Scan error on column index 5, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/27 10:56:06 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 10:59:30 utils.go:100: When select all income get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/27 11:01:59 utils.go:100: When select all payments get an error sql: Scan error on column index 5, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/27 11:02:58 utils.go:100: When select all outgos get an error sql: Scan error on column index 11, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/27 11:03:01 utils.go:100: When select all outgos get an error sql: Scan error on column index 11, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/27 11:03:12 utils.go:100: When select all income get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/27 11:08:51 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 11:09:55 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 11:23:25 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 11:33:47 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 11:41:29 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 11:42:06 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 11:46:06 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 11:46:34 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 11:51:12 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 11:54:02 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 14:25:52 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 14:26:00 utils.go:100: When delete the contract get an error database is locked
+ERROR 2018/11/27 14:26:06 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 14:28:55 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 14:28:57 utils.go:100: When select the contract get an error sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/27 14:29:04 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 14:29:12 utils.go:100: When delete the contract get an error database is locked
+ERROR 2018/11/27 14:29:43 utils.go:100: When delete the contract get an error database is locked
+ERROR 2018/11/27 14:31:29 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 14:34:36 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 14:39:01 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 15:01:06 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 15:31:43 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 15:53:25 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 15:57:11 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:10:54 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:11:42 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:12:12 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:13:09 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:13:36 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:14:22 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:15:39 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:15:59 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:17:03 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:18:22 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:39:06 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:39:35 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:41:41 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:42:05 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:43:45 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:46:00 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:50:06 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:50:57 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:56:21 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:57:36 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 16:59:46 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:01:59 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:07:14 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:11:26 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:12:24 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:13:57 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:14:17 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:38:17 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:38:48 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:39:38 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:39:42 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:41:40 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:42:31 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:43:11 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 17:44:31 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 19:51:54 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 19:52:01 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 19:56:45 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:08:54 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:09:25 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:09:27 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:09:31 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:11:34 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:21:46 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:21:58 utils.go:100: When update the contract get an error database is locked
+ERROR 2018/11/27 21:22:09 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:23:21 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:25:15 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:25:29 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/27 21:40:10 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/28 09:46:56 utils.go:100: When select all income get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 09:47:01 utils.go:100: When select all outgos get an error sql: Scan error on column index 11, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 09:47:08 utils.go:100: When select all payments get an error sql: Scan error on column index 5, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 10:09:51 utils.go:100: When select all income get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 10:09:53 utils.go:100: When select all income get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 10:09:54 utils.go:100: When select all income get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 10:10:02 utils.go:100: When select all income get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 10:10:42 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/28 10:12:19 utils.go:100: When select all income get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 10:12:47 utils.go:100: When select all income get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 10:15:34 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/28 10:24:34 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/28 10:32:01 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/28 10:33:51 utils.go:100: When select all outgos get an error sql: Scan error on column index 11, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 10:33:56 utils.go:100: When select all invoices get an error sql: Scan error on column index 9, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 10:33:58 utils.go:100: When select all payments get an error sql: Scan error on column index 5, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/28 14:39:37 utils.go:100: sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/28 17:33:58 utils.go:100: When select all products get an error sql: expected 9 destination arguments in Scan, not 10
+ERROR 2018/11/28 17:33:59 utils.go:100: When select all products get an error sql: expected 9 destination arguments in Scan, not 10
+ERROR 2018/11/29 13:34:37 utils.go:100: When select all customers get an error sql: expected 11 destination arguments in Scan, not 10
+ERROR 2018/11/29 13:35:08 utils.go:100: When select all customers get an error sql: expected 11 destination arguments in Scan, not 10
+ERROR 2018/11/29 13:35:09 utils.go:100: When select all customers get an error sql: expected 11 destination arguments in Scan, not 10
+ERROR 2018/11/29 13:35:09 utils.go:100: When select all customers get an error sql: expected 11 destination arguments in Scan, not 10
+ERROR 2018/11/29 13:35:09 utils.go:100: When select all customers get an error sql: expected 11 destination arguments in Scan, not 10
+ERROR 2018/11/29 13:38:38 utils.go:100: When insert the contract get an error NOT NULL constraint failed: contracts.prdtid
+ERROR 2018/11/29 13:57:13 utils.go:100: When insert the contract get an error NOT NULL constraint failed: contracts.prdtid
+ERROR 2018/11/29 14:09:34 utils.go:100: When insert the contract get an error NOT NULL constraint failed: contracts.prdtid
+ERROR 2018/11/29 14:31:04 utils.go:100: sql: Scan error on column index 4, name "cstmid": converting driver.Value type []uint8 ("kkkkkk") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/29 14:35:32 utils.go:100: sql: Scan error on column index 9, name "vector": converting driver.Value type []uint8 ("xiankuan") to a int: invalid syntax Cannot get all contract
+ERROR 2018/11/29 22:26:08 utils.go:100: sql: no rows in result set Cannot find user
+ERROR 2018/11/29 22:26:19 utils.go:100: sql: no rows in result set Cannot find user
+ERROR 2018/11/29 22:27:28 utils.go:100: When insert the contract0 get an error NOT NULL constraint failed: contracts0.cstmid
+ERROR 2018/11/29 22:29:38 utils.go:100: When select all contracts0 get an error sql: Scan error on column index 0, name "ccid": destination not a pointer
+ERROR 2018/11/29 22:31:48 utils.go:100: When insert the customer get an error UNIQUE constraint failed: customers.cstmid
+ERROR 2018/11/29 22:33:36 utils.go:100: When insert the customer get an error UNIQUE constraint failed: customers.cstmid
+ERROR 2018/11/29 22:37:17 utils.go:100: When insert the customer get an error UNIQUE constraint failed: customers.cstmid
+ERROR 2018/11/29 22:47:33 utils.go:100: When select all contracts0 get an error sql: Scan error on column index 4, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/29 22:47:37 utils.go:100: When select all contracts0 get an error sql: Scan error on column index 4, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/29 22:48:18 utils.go:100: When insert the contract0 get an error UNIQUE constraint failed: contracts0.ccid
+ERROR 2018/11/29 22:53:54 utils.go:100: sql: Scan error on column index 10, name "srcname": unsupported Scan, storing driver.Value type <nil> into type *string Cannot get all contract
+ERROR 2018/11/29 23:01:06 utils.go:100: When select all contracts0 get an error sql: Scan error on column index 4, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/29 23:01:11 utils.go:100: When select all contracts0 get an error sql: Scan error on column index 4, name "cstmname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/29 23:04:57 utils.go:100: When insert the contract0 get an error NOT NULL constraint failed: contracts0.cstmid
+ERROR 2018/11/29 23:09:32 utils.go:100: When select all outgos get an error sql: expected 13 destination arguments in Scan, not 12
+ERROR 2018/11/29 23:09:35 utils.go:100: When select all outgos get an error sql: expected 13 destination arguments in Scan, not 12
+ERROR 2018/11/29 23:11:54 utils.go:100: When select all outgos get an error sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string
+ERROR 2018/11/29 23:11:55 utils.go:100: When select all outgos get an error sql: Scan error on column index 9, name "prdtname": unsupported Scan, storing driver.Value type <nil> into type *string
+WARNING 2018/12/04 14:30:15 utils.go:105: <nil> Failed to get cookie
+WARNING 2018/12/07 09:43:28 utils.go:105: <nil> Failed to get cookie
+WARNING 2018/12/07 09:52:34 utils.go:105: <nil> Failed to get cookie
+ERROR 2018/12/07 15:05:31 utils.go:100: sql: no rows in result set Cannot find user
+ERROR 2018/12/14 22:03:15 utils.go:100: When select all inway products get an error sql: Scan error on column index 2, name "prdtid": converting driver.Value type []uint8 ("0020020021ZYLC0014") to a int: invalid syntax
+ERROR 2018/12/14 22:03:51 utils.go:100: When select all inway products get an error sql: Scan error on column index 2, name "prdtid": converting driver.Value type []uint8 ("0020020021ZYLC0014") to a int: invalid syntax
+ERROR 2018/12/14 22:55:22 utils.go:100: When insert the payment get an error CHECK constraint failed: debts
