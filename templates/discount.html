@@ -5,6 +5,7 @@
   <title>折让计算器</title>
   <link rel="shortcut icon" href="http://47.98.182.118/static/favicon.png" type=image/x-icon>
   <link rel="stylesheet" href="/static/css/discount.css">
+  <script src="/static/js/jquery-2.1.1.min.js"></script>
   </head>
   
 <body>
@@ -20,8 +21,6 @@
 		   <td>单价</td>
            <td>最低价</td>
            <td>最高价</td>
-           <td>结果量</td>
-           <td>结果价</td>
          </tr>
 		 <tr>
 		   <td><input /></td>
@@ -30,8 +29,6 @@
 		   <td><input /></td>
 		   <td><input /></td>
 		   <td><input /></td>
-		   <td><input disabled="true" /></td>
-		   <td><input disabled="true" /></td>
 		 </tr>
 		</table>
 	</fieldset>
@@ -49,8 +46,6 @@
            <td>装量</td>
            <td>最低价</td>
            <td>最高价</td>
-           <td>结果量</td>
-		   <td>结果价</td>
           </tr>
           <tr>
 		   <td><input /></td>
@@ -59,29 +54,28 @@
 		   <td><input /></td>
 		   <td><input /></td>
 		   <td><input /></td>
-		   <td><input disabled="true" /></td>
-		   <td><input disabled="true" /></td>
 		 </tr>
 		</table>
 	 </fieldset>
 	 <button id="patch_addItem">增加品种</button><button id="patch_delItem">删除品种</button>
   </section>
   
-  <h3>条件选项</h3>
+  
   <section id="tiaojian">
-     <fieldset>
-	    <label for="yaopin_name">合同总价：</label>
-		<input type="text" name="yaopin_name" id="firstsum" disabled="true" />
-		<label for="qiye_name">结果总价：</label>
-		<input type="text" id="lastsum"  name="resultprice" disabled="true" />
-	 </fieldset>
-	 <button id="addItem">计算</button>
+    
+	 <button id="doit">开始计算</button>
   </section>
+  <section  id="results">
+      
+  
+  
+  
+  </table>
+</section>
   <p><em>说明：</em></p>
   <p>1.所有的价格都是正常价格乘以100，不能有小数。结果的单价也是乘以100后的值。</p>
   <p>2.最高价和最低价的差距一要尽量设置的小一些，不然要花费大量的时间计算。</p>
-  <p>3.合同内容的最高价要和合同的单价设置成一样的值。</p>
-  <p>4.除了最后两列的结果量和结果价，其它的都要填写。</p>
+  <p>3.品种名随便填写即可，这是你自己用来区分的，不影响计算。</p>
   <section>
   </section>
  <script src="/static/js/discount.js"></script>

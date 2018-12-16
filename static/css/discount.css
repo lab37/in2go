@@ -43,20 +43,27 @@ input {
 }
 
 button {
-  background-color: #cb6868;
-  color: #f3dad1;
   margin-top: 5px;
   margin-left: 2px;
   margin-bottom: 10px;
   margin-right: 10px;
   width: 100px;
   height: 30px;
+}
+
+#doit {
+  margin-top: 32px;
+  background-color: #cb6868;
+  color: #f3dad1;
   border: none;
   border-radius: 5px;
   font-size: 18px;
 }
 
-#tiaojian input {
-  margin-right: 30px;
-  width: 160px;
+#results {
+ border-style: solid;
+ border-width: 1px;
 }
+#results h3 {
+  margin-top:10px;
+ }

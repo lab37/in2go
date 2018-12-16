@@ -5,28 +5,28 @@ function hetong_addItem() {
 	position.appendChild(newTr);
 	var newTd = document.createElement('td');
 	var lastTr = position.lastChild;
-	for (i=0;i<8;i++) {
-	  newTd = document.createElement('td')
-	  newInput = document.createElement('input')
-	  newTd.appendChild(newInput);
-	  if (i>5) {
-		newInput.disabled = "true";
-	  }
-	  lastTr.appendChild(newTd);
+	for (let i = 0; i < 6; i++) {
+		newTd = document.createElement('td')
+		newInput = document.createElement('input')
+		newTd.appendChild(newInput);
+		if (i > 5) {
+			newInput.disabled = "true";
+		}
+		lastTr.appendChild(newTd);
 	}
-	
+
 };
 
 
 
 function hetong_delItem() {
 
-// Find the element which contains the element to be removed.
-var containerEl = document.getElementById('hetong');
-var removeEl = containerEl.lastChild;
-if (containerEl.children.length>1) {
-    containerEl.removeChild(removeEl);
-}
+	// Find the element which contains the element to be removed.
+	var containerEl = document.getElementById('hetong');
+	var removeEl = containerEl.lastChild;
+	if (containerEl.children.length > 1) {
+		containerEl.removeChild(removeEl);
+	}
 }
 
 function patch_addItem() {
@@ -36,168 +36,179 @@ function patch_addItem() {
 	position.appendChild(newTr);
 	var newTd = document.createElement('td');
 	var lastTr = position.lastChild;
-	for (i=0;i<8;i++) {
-	  newTd = document.createElement('td')
-	  newInput = document.createElement('input')
-	  if (i>5) {
-		newInput.disabled = "true";
-	  }
-	  newTd.appendChild(newInput);
-	  lastTr.appendChild(newTd);
+	for ( let i = 0; i < 6; i++) {
+		newTd = document.createElement('td')
+		newInput = document.createElement('input')
+		if (i > 5) {
+			newInput.disabled = "true";
+		}
+		newTd.appendChild(newInput);
+		lastTr.appendChild(newTd);
 	}
-	
+
 };
 
 
 
 function patch_delItem() {
 
-// Find the element which contains the element to be removed.
-var containerEl = document.getElementById('patch');
-var removeEl = containerEl.lastChild;
-if (containerEl.children.length>1) {
-    containerEl.removeChild(removeEl);
-}
+	// Find the element which contains the element to be removed.
+	var containerEl = document.getElementById('patch');
+	var removeEl = containerEl.lastChild;
+	if (containerEl.children.length > 1) {
+		containerEl.removeChild(removeEl);
+	}
 };
-
-function mFor(a,b,d,fs,bz) {
+function doIt() {
+	let prdtName = new Array();
+	let contracts = new Array();
+	let needSum = 0;
 	var hetongItem = document.querySelectorAll('#hetong tr');
-    var patchItem = document.querySelectorAll('#patch tr');
-	var totalA=1, totalB=1;
-	var w, t, k, m, v;
-	var z=1;
-	var lastSum=0;
-	var thisSum = 0;
-    var n = new Array();
-	var tempArry = new Array();
-	var tempSum1, tempSum2=10000000;
-	for (t=0;t<=d;t++) {
-	  totalA = totalA*(b[t]-a[t]+1);
-      n[t]=a[t];
-      tempArry[t]=a[t];	  
-	}
+	let patchs = new Array;
+	var patchItem = document.querySelectorAll('#patch tr');
+	let tmpContractArr = new Array();
+	let tmpPatchQuantityArr = new Array();
+	let tmpPatchPriceArr = new Array();
+	let resultAll = new Array();
 
-    for (t=d+1;t<a.length;t++) {
-	  totalB = totalB*(b[t]-a[t]+1);
-      n[t]=a[t];
-      tempArry[t]=a[t];
+	console.log("合同品种个数:" + (hetongItem.length - 1));
+
+	let hetongCount = hetongItem.length - 1;
+	for (let i = 0; i < hetongCount; i++) {
+		let contract = new Array();
+
+		needSum = needSum + Math.floor(hetongItem[i + 1].children[1].firstChild.value) * Math.floor(hetongItem[i + 1].children[2].firstChild.value) * Math.floor(hetongItem[i + 1].children[3].firstChild.value);
+
+		contract.push(Math.floor(hetongItem[i + 1].children[1].firstChild.value));
+		contract.push(Math.floor(hetongItem[i + 1].children[2].firstChild.value));
+		contract.push(Math.floor(hetongItem[i + 1].children[4].firstChild.value));
+		contract.push(Math.floor(hetongItem[i + 1].children[5].firstChild.value));
+		tmpContractArr.push(Math.floor(hetongItem[i + 1].children[4].firstChild.value));
+		prdtName.push(hetongItem[i + 1].children[0].firstChild.value + '单价');
+		
+		contracts.push(contract);
+
 	}
-	for (w=0;w<totalA;w++) {        
-		for (t=d;t>=0;t--){
-		    if(n[t]>b[t]) {
-			  n[t-1]++;
-			  n[t]=a[t];
+	let patchCount = patchItem.length - 1;
+	console.log("赠品品种个数:" + (patchItem.length - 1));
+	for (let j = 0; j < patchCount; j++) {
+		let patch = new Array();
+
+		patch.push(Math.floor(patchItem[j + 1].children[1].firstChild.value));
+		patch.push(Math.floor(patchItem[j + 1].children[2].firstChild.value));
+		patch.push(Math.floor(patchItem[j + 1].children[3].firstChild.value));
+		patch.push(Math.floor(patchItem[j + 1].children[4].firstChild.value));
+		patch.push(Math.floor(patchItem[j + 1].children[5].firstChild.value));
+		tmpPatchQuantityArr.push(Math.floor(patchItem[j + 1].children[1].firstChild.value));
+		tmpPatchPriceArr.push(Math.floor(patchItem[j + 1].children[4].firstChild.value));
+		prdtName.push(patchItem[j + 1].children[0].firstChild.value+'件数');
+		prdtName.push(patchItem[j + 1].children[0].firstChild.value+'单价');
+		patchs.push(patch);
+	}
+	// console.log(needSum);
+	// console.log(contracts);
+	// console.log(patchs);
+	// console.log(tmpContractArr);
+	// console.log(tmpPatchPriceArr);
+	// console.log(tmpPatchQuantityArr);
+
+	let lastSum=0;
+
+	while (tmpContractArr[0] <= contracts[0][3]) {
+		
+		let tmpSum = 0;
+		for (let i = 0; i < tmpContractArr.length; i++) {//计算此时的合同总额
+			tmpSum = tmpSum + contracts[i][0] * contracts[i][1] * tmpContractArr[i];
+		}
+		for (let j = 0; j < tmpPatchQuantityArr.length; j++) {//再加上此时的赠品总额
+			tmpSum = tmpSum + patchs[j][2] * tmpPatchQuantityArr[j] * tmpPatchPriceArr[j];
+		}
+		
+		if (Math.abs(tmpSum - needSum) < 300) {//如果结果符合要求,记录当前结果状态
+			let t1 = tmpContractArr.concat(tmpPatchQuantityArr);
+			let t2 = t1.concat(tmpPatchPriceArr);
+			t2.push(tmpSum);
+			resultAll.push(t2);
+		} 
+
+		tmpPatchPriceArr[tmpPatchPriceArr.length - 1]++;
+		for (let k = tmpPatchPriceArr.length - 1; k > 0; k--) {//处理赠品价格数组的进位
+			if (tmpPatchPriceArr[k] == patchs[k][4]) {
+				tmpPatchPriceArr[k - 1]++;
+				tmpPatchPriceArr[k] = patchs[k][3];
 			}
-	    }
-		for (v=d+1;v<totalB;v++) {
-			for (t=a.length-1;t>d;t--){
-		      if(n[t]>b[t]) {
-			    n[t-1]++;
-			    n[t]=a[t];
-			  }
-	        }
-			
-			for (k=0;k<=d;k++) {
-			  lastSum = lastSum + n[k]*bz[k];
+		}
+		if (tmpPatchPriceArr[0] == patchs[0][4]) {//赠品价格数组进位到头后触发赠品数量数组增加
+			tmpPatchQuantityArr[tmpPatchQuantityArr.length - 1]++;
+			tmpPatchPriceArr[0] = patchs[0][3];
+			lastSum=0;//标记下次lastSum不计入判断
+		} else{
+			//赠品价格没有进位到头，但是若差值越远了的话后面的也不用测了因为是单调的，直接进位。
+            if((lastSum != 0) &&(Math.abs(lastSum - needSum)<Math.abs(tmpSum - needSum))&&Math.abs(tmpSum - needSum)>300){
+				tmpPatchQuantityArr[tmpPatchQuantityArr.length - 1]++;
+				tmpPatchPriceArr[0] = patchs[0][3];
+				lastSum=0;//标记下次lastSum不计入判断
+			} else {
+				lastSum=tmpSum;//标记下次lastSum计入判断
 			}
-			for (k=d+1;k<(d+a.length-1)/2+1;k++) {
-			  lastSum=lastSum + n[k]*n[k+(a.length-d-1)/2]*bz[k];		
+		}
+		for (let k = tmpPatchQuantityArr.length - 1; k > 0; k--) {//处理赠品数量数组进位
+			if (tmpPatchQuantityArr[k] == patchs[k][1]) {
+				tmpPatchQuantityArr[k - 1]++;
+				tmpPatchQuantityArr[k] = patchs[k][0];
 			}
-			tempSum1 = Math.abs(lastSum - fs);
-			if ((lastSum - fs)>tempSum2) {
-				for (t=d+1;t<a.length;t++) {	       
-                  n[t]=a[t];
-	            }
-				
-				break;
+		}
+
+		if (tmpPatchQuantityArr[0] == patchs[0][1]) {//赠品数量数组进位到头后触发合同价格数组增加
+			tmpContractArr[tmpContractArr.length - 1]++;
+			tmpPatchQuantityArr[0] = patchs[0][0];
+		}
+		for (let k = tmpContractArr.length - 1; k > 0; k--) {//处理合同价格数组进位
+			if (tmpContractArr[k] == contracts[k][3]) {
+				tmpContractArr[k - 1]++;
+				tmpContractArr[k] = contracts[k][2];
 			}
-			if (tempSum2 > tempSum1) {
-				tempSum2 = tempSum1;
-				thisSum = lastSum;
-				for (m=0;m<a.length;m++){
-				  tempArry[m]=n[m];
-				}
-			}
-			n[a.length-1]++;
-			lastSum = 0;
-	    }
-		n[d]++;
+		}
+
 	}
-	
-	alert("计算完成");
-	
-	result2.value = thisSum;
-	for (m=0;m<=d;m++) {
-	  hetongItem[z].children[7].firstChild.value=tempArry[m];
-	
-	  z++;
+
+	// alert("计算完成");
+
+	var newContent = '<h3>可行方案：</h3><p>原合同总额：'+needSum+'</p><table>';
+	newContent += '<tr class="table_title">';
+	for (let i = 0; i < prdtName.length; i++) {
+		newContent += '<td>' + prdtName[i] + '</td>';
 	}
-	z=1;
-	for (m=0;m<patchItem.length-1;m++) {
-	  patchItem[z].children[7].firstChild.value=tempArry[d+1+m];
-	  z++;
+	newContent += '<td>总额</td>';
+	newContent += '<td>差额</td>';
+	newContent += '</tr>';
+	for (let i = 0; i < resultAll.length; i++) {
+		newContent += '<tr>';
+		for (let j = 0; j < resultAll[i].length; j++) {
+			newContent += '<td>' + resultAll[i][j] + '</td>';
+		}
+
+		newContent += '<td>' + (needSum-resultAll[i][resultAll[0].length-1]) + '</td>';
+		newContent += '</tr>';
+
 	}
-	z=1;
-	for (m=(d+a.length-1)/2+1;m<a.length;m++) {
-	  
-	  patchItem[z].children[6].firstChild.value=tempArry[m];
-	  z++;
-	}
-	
-};
-	
+	newContent += '</table>';
+	// Update the page with the new content
+	document.getElementById('results').innerHTML = newContent;
+	$("#results").show();
 
-function addItem() {
-  var i=0, n=0, g=0, h=0;
-  var maxArr = new Array();
-  var minArr = new Array();
-  var perQuanArr = new Array();
-  var firstSum=0;
-  var hetongItem = document.querySelectorAll('#hetong tr');
-  var patchItem = document.querySelectorAll('#patch tr');
-  
-  
-  h =  hetongItem.length-2;
-  for (i=1;i<hetongItem.length;i++) {
-    firstSum = firstSum + hetongItem[i].children[1].firstChild.value*hetongItem[i].children[2].firstChild.value*hetongItem[i].children[3].firstChild.value;
-	minArr.push(Math.floor(hetongItem[i].children[4].firstChild.value));
-	maxArr.push(Math.floor(hetongItem[i].children[5].firstChild.value));
-	perQuanArr.push((hetongItem[i].children[2].firstChild.value*hetongItem[i].children[1].firstChild.value));
-  }
-  for (n=1;n<patchItem.length;n++) {
-	minArr.push(Math.floor(patchItem[n].children[4].firstChild.value));
-	maxArr.push(Math.floor(patchItem[n].children[5].firstChild.value));
-	perQuanArr.push(Math.floor(patchItem[n].children[3].firstChild.value));
-  }
-  
-  for (g=1;g<patchItem.length;g++) {
-	minArr.push(Math.floor(patchItem[g].children[1].firstChild.value));
-	maxArr.push(Math.floor(patchItem[g].children[2].firstChild.value));
-  }
-  
-  result1.value = firstSum;
-  mFor(minArr,maxArr,Math.floor(h),Math.floor(firstSum),perQuanArr);
-  
-};
+}
+// mFor(minArr, maxArr, Math.floor(h), Math.floor(firstSum), perQuanArr);
 
 
+$('#hetong_addItem').on('click', hetong_addItem);
+document.getElementById('hetong_delItem').addEventListener('click', hetong_delItem, false);
 
+$('#patch_addItem').on('click', patch_addItem);
+$('#patch_delItem').on('click', patch_delItem);
+$('#doit').on('click', doIt);
 
-
-var hetong_add = document.getElementById('hetong_addItem');
-hetong_add.addEventListener('click', hetong_addItem, false);
-
-var hetong_del = document.getElementById('hetong_delItem');
-hetong_del.addEventListener('click', hetong_delItem, false);
-
-var patch_add = document.getElementById('patch_addItem');
-patch_add.addEventListener('click', patch_addItem, false);
-
-var patch_del = document.getElementById('patch_delItem');
-patch_del.addEventListener('click', patch_delItem, false);
-
-var lastAddItem = document.getElementById('addItem');
-lastAddItem.addEventListener('click', addItem, false);
 
 var result1 = document.getElementById('firstsum');
-var result2 = document.getElementById('lastsum'); 
+var result2 = document.getElementById('lastsum');
+$("#results").hide();
