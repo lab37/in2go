@@ -51,8 +51,12 @@ button {
   height: 30px;
 }
 
+#progressbar{
+  margin-top:32px;
+}
+
 #doit {
-  margin-top: 32px;
+  margin-top: 16px;
   background-color: #cb6868;
   color: #f3dad1;
   border: none;

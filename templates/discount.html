@@ -5,7 +5,22 @@
   <title>折让计算器</title>
   <link rel="shortcut icon" href="http://47.98.182.118/static/favicon.png" type=image/x-icon>
   <link rel="stylesheet" href="/static/css/discount.css">
-  <script src="/static/js/jquery-2.1.1.min.js"></script>
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css">
+	<script src="/static/js/jquery-2.1.1.min.js"></script>
+  <script src="/static/js/jquery-ui.min.js"></script>
+  <!-- 用于设置滚动条样式 -->
+  <style>
+    .ui-progressbar {
+      position: relative;
+    }
+    #progress-label {
+      position: absolute;
+      left: 50%;
+      top: 4px;
+      font-weight: bold;
+      text-shadow: 1px 1px 0 #fff;
+    }
+    </style>
   </head>
   
 <body>
@@ -63,6 +78,9 @@
   
   <section id="tiaojian">
     
+<!-- 加入滚动条 -->
+  <div id="progressbar"><div id="progress-label">未计算...</div></div>
+
 	 <button id="doit">开始计算</button>
   </section>
   <section  id="results">

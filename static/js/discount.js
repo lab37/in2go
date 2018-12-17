@@ -36,7 +36,7 @@ function patch_addItem() {
 	position.appendChild(newTr);
 	var newTd = document.createElement('td');
 	var lastTr = position.lastChild;
-	for ( let i = 0; i < 6; i++) {
+	for (let i = 0; i < 6; i++) {
 		newTd = document.createElement('td')
 		newInput = document.createElement('input')
 		if (i > 5) {
@@ -59,6 +59,13 @@ function patch_delItem() {
 		containerEl.removeChild(removeEl);
 	}
 };
+
+function hook(){
+	progressLabel.text("计算中。。。。。");
+	progressbar.progressbar("value", false);//清除进度条value的值，使其显示为条形
+	
+}
+
 function doIt() {
 	let prdtName = new Array();
 	let contracts = new Array();
@@ -85,7 +92,7 @@ function doIt() {
 		contract.push(Math.floor(hetongItem[i + 1].children[5].firstChild.value));
 		tmpContractArr.push(Math.floor(hetongItem[i + 1].children[4].firstChild.value));
 		prdtName.push(hetongItem[i + 1].children[0].firstChild.value + '单价');
-		
+
 		contracts.push(contract);
 
 	}
@@ -101,12 +108,12 @@ function doIt() {
 		patch.push(Math.floor(patchItem[j + 1].children[5].firstChild.value));
 		tmpPatchQuantityArr.push(Math.floor(patchItem[j + 1].children[1].firstChild.value));
 		tmpPatchPriceArr.push(Math.floor(patchItem[j + 1].children[4].firstChild.value));
-		prdtName.push(patchItem[j + 1].children[0].firstChild.value+'件数');
+		prdtName.push(patchItem[j + 1].children[0].firstChild.value + '件数');
 		patchs.push(patch);
 	}
 
 	for (let j = 0; j < patchCount; j++) {
-		prdtName.push(patchItem[j + 1].children[0].firstChild.value+'单价');
+		prdtName.push(patchItem[j + 1].children[0].firstChild.value + '单价');
 	}
 
 
@@ -117,10 +124,9 @@ function doIt() {
 	// console.log(tmpPatchPriceArr);
 	// console.log(tmpPatchQuantityArr);
 
-	let lastSum=0;
-
+	let lastSum = 0;
 	while (tmpContractArr[0] <= contracts[0][3]) {
-		
+
 		let tmpSum = 0;
 		for (let i = 0; i < tmpContractArr.length; i++) {//计算此时的合同总额
 			tmpSum = tmpSum + contracts[i][0] * contracts[i][1] * tmpContractArr[i];
@@ -128,13 +134,13 @@ function doIt() {
 		for (let j = 0; j < tmpPatchQuantityArr.length; j++) {//再加上此时的赠品总额
 			tmpSum = tmpSum + patchs[j][2] * tmpPatchQuantityArr[j] * tmpPatchPriceArr[j];
 		}
-		
+
 		if (Math.abs(tmpSum - needSum) < 300) {//如果结果符合要求,记录当前结果状态
 			let t1 = tmpContractArr.concat(tmpPatchQuantityArr);
 			let t2 = t1.concat(tmpPatchPriceArr);
 			t2.push(tmpSum);
 			resultAll.push(t2);
-		} 
+		}
 
 		tmpPatchPriceArr[tmpPatchPriceArr.length - 1]++;
 		for (let k = tmpPatchPriceArr.length - 1; k > 0; k--) {//处理赠品价格数组的进位
@@ -146,15 +152,15 @@ function doIt() {
 		if (tmpPatchPriceArr[0] == patchs[0][4]) {//赠品价格数组进位到头后触发赠品数量数组增加
 			tmpPatchQuantityArr[tmpPatchQuantityArr.length - 1]++;
 			tmpPatchPriceArr[0] = patchs[0][3];
-			lastSum=0;//标记下次lastSum不计入判断
-		} else{
+			lastSum = 0;//标记下次lastSum不计入判断
+		} else {
 			//赠品价格没有进位到头，但是若差值越远了的话后面的也不用测了因为是单调的，直接进位。
-            if((lastSum != 0) &&(Math.abs(lastSum - needSum)<Math.abs(tmpSum - needSum))&&Math.abs(tmpSum - needSum)>300){
+			if ((lastSum != 0) && (Math.abs(lastSum - needSum) < Math.abs(tmpSum - needSum)) && Math.abs(tmpSum - needSum) > 300) {
 				tmpPatchQuantityArr[tmpPatchQuantityArr.length - 1]++;
 				tmpPatchPriceArr[0] = patchs[0][3];
-				lastSum=0;//标记下次lastSum不计入判断
+				lastSum = 0;//标记下次lastSum不计入判断
 			} else {
-				lastSum=tmpSum;//标记下次lastSum计入判断
+				lastSum = tmpSum;//标记下次lastSum计入判断
 			}
 		}
 		for (let k = tmpPatchQuantityArr.length - 1; k > 0; k--) {//处理赠品数量数组进位
@@ -174,12 +180,14 @@ function doIt() {
 				tmpContractArr[k] = contracts[k][2];
 			}
 		}
+		// let pct = Math.round((tmpContractArr[0] - contracts[0][2]) / (contracts[0][3] - contracts[0][2]) * 100);
+		// progressbar.progressbar("value", pct);//设置value的值
 
 	}
+	
+	
 
-	// alert("计算完成");
-
-	var newContent = '<h3>可行方案：</h3><p>原合同总额：'+needSum+'</p><table>';
+	var newContent = '<h3>可行方案：</h3><p>原合同总额：' + needSum + '</p><table>';
 	newContent += '<tr class="table_title">';
 	for (let i = 0; i < prdtName.length; i++) {
 		newContent += '<td>' + prdtName[i] + '</td>';
@@ -193,7 +201,7 @@ function doIt() {
 			newContent += '<td>' + resultAll[i][j] + '</td>';
 		}
 
-		newContent += '<td>' + (needSum-resultAll[i][resultAll[0].length-1]) + '</td>';
+		newContent += '<td>' + (needSum - resultAll[i][resultAll[0].length - 1]) + '</td>';
 		newContent += '</tr>';
 
 	}
@@ -201,7 +209,9 @@ function doIt() {
 	// Update the page with the new content
 	document.getElementById('results').innerHTML = newContent;
 	$("#results").show();
-
+	progressbar.progressbar("value", 100);
+	// progressLabel.text("计算完成！");
+	// alert("计算完成");
 }
 // mFor(minArr, maxArr, Math.floor(h), Math.floor(firstSum), perQuanArr);
 
@@ -211,9 +221,31 @@ document.getElementById('hetong_delItem').addEventListener('click', hetong_delIt
 
 $('#patch_addItem').on('click', patch_addItem);
 $('#patch_delItem').on('click', patch_delItem);
-$('#doit').on('click', doIt);
+$('#doit').on('click', hook);
 
 
 var result1 = document.getElementById('firstsum');
 var result2 = document.getElementById('lastsum');
 $("#results").hide();
+
+var progressbar = $("#progressbar");
+var progressLabel = $("#progress-label");
+
+progressbar.progressbar({
+	// value: 0,//进度条的初始值，value就是进度的值
+	change: function () {//进度改变的触发函数
+		if(progressbar.progressbar("value")!=100){
+		setTimeout( doIt, 1000 );
+	}
+	},
+	complete: function () {//时度完成后的触发函数
+		progressLabel.text("计算完成！");
+		alert("计算完成");
+	}
+});
+// function progress() {//通过此函数不断的改变进度条的值
+// 	let pct = Math.round((tmpContractArr[0] - contracts[0][2]) / (contracts[0][3] - contracts[0][2]) * 100);
+// 	progressbar.progressbar("value", pct);//设置value的值
+// 	setTimeout( progress, 3000 );
+
+// }
