@@ -102,9 +102,14 @@ function doIt() {
 		tmpPatchQuantityArr.push(Math.floor(patchItem[j + 1].children[1].firstChild.value));
 		tmpPatchPriceArr.push(Math.floor(patchItem[j + 1].children[4].firstChild.value));
 		prdtName.push(patchItem[j + 1].children[0].firstChild.value+'件数');
-		prdtName.push(patchItem[j + 1].children[0].firstChild.value+'单价');
 		patchs.push(patch);
 	}
+
+	for (let j = 0; j < patchCount; j++) {
+		prdtName.push(patchItem[j + 1].children[0].firstChild.value+'单价');
+	}
+
+
 	// console.log(needSum);
 	// console.log(contracts);
 	// console.log(patchs);
