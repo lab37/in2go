@@ -65,7 +65,7 @@ function stockQuery(e) {
 };
 $('#export').hide();
 $('#export').click(function(){
-  table2xlsx('xlsx','income_results');
+  table2xlsx('xlsx','stocks_results');
 });
 let cstmSelects = getCustomerName();
 $("#cstmname").autocomplete({
