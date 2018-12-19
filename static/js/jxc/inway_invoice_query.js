@@ -17,7 +17,7 @@ function inwayInvoiceQuery(e) {
     if (t2f) {
       alert('请至少填写一项，查询全部请直接点击查询全部按钮');
       return;
-    }
+    } 
     postStr = postStr + '&tt=' + encodeURIComponent('some');
     postStr = postStr + '&ccid=' + encodeURIComponent(document.getElementById("ccid").value.replace(/\s+/g, ""));
     postStr = postStr + '&srcname=' + encodeURIComponent(document.getElementById("srcname").value.replace(/\s+/g, ""));
@@ -31,16 +31,7 @@ function inwayInvoiceQuery(e) {
 
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
-      newContent += '<tr class="table_title">';
-      newContent += '<td>合同号码</td>';
-      newContent += '<td>售方名称</td>';
-      newContent += '<td>购方名称</td>';
-      newContent += '<td>合同金额</td>';
-      newContent += '<td>已开金额</td>';
-      newContent += '<td>差额</td>';
-      newContent += '<td>备注</td>';
-      // newContent += '<td>操作</td>';
-      newContent += '</tr>';
+      
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].Id + '">';
         newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
@@ -54,7 +45,8 @@ function inwayInvoiceQuery(e) {
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('inway_invoice_results').innerHTML = newContent;
+      document.getElementById('rows').innerHTML = newContent;
+      $('#inway_invoice_results').show();
       $('#export').show();
     }
   };
@@ -64,6 +56,7 @@ function inwayInvoiceQuery(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
+$('#inway_invoice_results').hide();
 $('#export').hide();
 $('#export').click(function(){
   table2xlsx('xlsx','inway_invoice_results');

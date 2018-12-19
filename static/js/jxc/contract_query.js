@@ -1,5 +1,5 @@
 function queryContract(e) {
-
+  
   let tgt = getTarget(e);
   var postStr;
   if (tgt.id == 'contract_query_all') {
@@ -37,20 +37,6 @@ function queryContract(e) {
 
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
-      newContent += '<tr class="table_title">';
-      newContent += '<td>合同编号</td>';
-      newContent += '<td>购进售出</td>';
-      newContent += '<td>售出客户</td>';
-      newContent += '<td>签定日期</td>';
-      newContent += '<td>类型</td>';
-      newContent += '<td>客户名称</td>';
-      newContent += '<td>产品名称</td>';
-      newContent += '<td>规格</td>';
-      newContent += '<td>价格</td>';
-      newContent += '<td>数量</td>';
-      newContent += '<td>备注</td>';
-      newContent += '<td>操作</td>';
-      newContent += '</tr>';
       for (var i = 0; i < responseObject.length; i++) {
         newContent += '<tr id="' + responseObject[i].Id + '">';
         newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
@@ -68,8 +54,10 @@ function queryContract(e) {
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('contract_results').innerHTML = newContent;
-      $('#export').show()
+      document.getElementById('rows').innerHTML = newContent;
+      $('#export').show();
+      $("#contract_results").show();
+
     }
   };
 
@@ -78,6 +66,9 @@ function queryContract(e) {
   console.log(postStr);
   xhr.send(postStr);
 };
+
+$("#contract_results").hide();
+
 $('#export').hide();
 $('#export').click(function(){
   table2xlsx('xlsx','contract_results');

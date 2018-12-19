@@ -33,18 +33,7 @@ function outwayProductQuery(e) {
 
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
-      newContent += '<tr class="table_title">';
-      newContent += '<td>合同号码</td>';
-      newContent += '<td>售方名称</td>';
-      newContent += '<td>购方名称</td>';
-      newContent += '<td>品种名称</td>';
-      newContent += '<td>品种规格</td>';
-      newContent += '<td>合同数量</td>';
-      newContent += '<td>发出数量</td>';
-      newContent += '<td>差额</td>';
-      newContent += '<td>备注</td>';
-      // newContent += '<td>操作</td>';
-      newContent += '</tr>';
+     
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].Id + '">';
         newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
@@ -60,7 +49,8 @@ function outwayProductQuery(e) {
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('outway_product_results').innerHTML = newContent;
+      document.getElementById('rows').innerHTML = newContent;
+      $('#outway_product_results').show();
       $('#export').show();
     }
   };
@@ -70,6 +60,7 @@ function outwayProductQuery(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
+$('#outway_product_results').hide();
 $('#export').hide();
 $('#export').click(function(){
   table2xlsx('xlsx','outway_product_results');

@@ -1,80 +1,24 @@
-function getTarget(e) {
-  if (!e) {
-    e = window.event;
-  }
-  return e.target || e.srcElement;
-}
+// var clock = new Vue({
+//     el: '#clock',
+//     data: {
+//         time: '',
+//         date: ''
+//     }
+// });
 
-function checkInput(element) {
-  var isNull = false;
-  var elReal = element.value.replace(/\s+/g,"");
-  if (elReal.length < 1) {            // If username too short
-   isNull = true;                             // Clear msg
-  }
-  return isNull;
+var week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+var timerID = setInterval(updateTime, 1000);
+updateTime();
+function updateTime() {
+    var cd = new Date();
+    $(".time").text(zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2));
+    $(".date").text(zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth()+1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()]);
 };
 
-function itemDone(target) {
-  chapter = target.getAttribute('title');
-  if (!chapter) {
-    return
-  }
-  $("#article").empty();
-  $('#article').load('htmlturn?dest=' + chapter);
-  
-}
-
-$(".tog").click(function(){
-  itemDone(this);
-});
-
-function getCustomerName() {
-  let rsts = new Array();
-  $.ajaxSettings.async = false;
-  $.getJSON("getcustomername",function(result){
-    $.each(result, function(i, field){
-      rsts.push(field.CstmName); 
-    });
-  });
-  $.ajaxSettings.async = true;
-  return rsts;
-}
-
-function getAllCcId() {
-  let rsts = new Array();
-  $.ajaxSettings.async = false;
-  $.getJSON("getallccid",function(result){
-    $.each(result, function(i, field){
-      rsts.push(field.CcId); 
-    });
-  });
-  $.ajaxSettings.async = true;
-  return rsts;
-}
-
-function getProductNS() {
-  let rsts = new Array();
-  $.ajaxSettings.async = false;
-  $.getJSON("getproductns",function(result){
-    $.each(result, function(i, field){
-      rsts.push(field); 
-    });
-  });
-  $.ajaxSettings.async = true;
-  return rsts;
-}
-
-$(function() {
-  $( "#book_nav" ).accordion({
-    collapsible: true,
-    heightStyle: "content"
-  });
-});
-
-function table2xlsx(type,elementID, fn, dl) {
-	var elt = document.getElementById(elementID);
-	var wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
-	return dl ?
-		XLSX.write(wb, {bookType:type, bookSST:true, type: 'base64'}) :
-		XLSX.writeFile(wb, fn || ('test.' + (type || 'xlsx')));
+function zeroPadding(num, digit) {
+    var zero = '';
+    for(var i = 0; i < digit; i++) {
+        zero += '0';
+    }
+    return (zero + num).slice(-digit);
 }

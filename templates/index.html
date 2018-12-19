@@ -2,134 +2,104 @@
 <html>
 
 <head>
+	<title>个人业务数据</title>
 	<meta charset="utf-8" />
-	<title>慧慧进销存系统</title>
-
-	<link rel="stylesheet" href="/static/css/jquery-ui.min.css">
-	<script src="/static/js/jquery-2.1.1.min.js"></script>
-	<script src="/static/js/jquery-ui.min.js"></script>
-	<script src="/static/js/xlsx.core.min.js"></script>
-	<link rel="shortcut icon" href="/static/favicon.png" type=image/x-icon>
-	<link rel="stylesheet" href="/static/css/index.css">
+	<script src="static/js/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" href="static/css/index.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="static/css/apple-clock.css" media="screen" type="text/css" />
+	<link rel="shortcut icon" href="static/favicon.png" type=image/x-icon />
+	<link rel="stylesheet prefetch" href="static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="static/css/game.css">
 </head>
 
 <body>
-	<header id="page_header">
-		<h1><a href="index" style="color: #333"><img src="static/logo.png" width="64" height="64" style="vertical-align: middle">慧慧进销存管理系统</a></h1>
-		<nav>
-			<ul>
-				<li>常用链接：</li>
-				<li><a target="_blank" href="http://www.sdyypt.net">省医药平台</a></li>
-				<li><a target="_blank" href="http://www.sdwsjs.gov.cn/">省卫计委</a></li>
-				<li><a target="_blank" href="http://hrss.shandong.gov.cn/">医保局</a></li>
-				<li><a target="_blank" href="http://www.yiyaoshuju.cn/">数据查询网</a></li>
+	<section id="clock-ctn">
+		<section id="first-box">
+			<section>
+				<h1>个人业务数据-建设中</h1>
+			</section>
+			<section>
+				<div class="container">
+					<header>
+						<h2>匹配游戏</h2>
+					</header>
 
-				<li><a target="_blank" href="/webchat">提交使用问题</a></li>
-			</ul>
-			<ul>
-				<li><a href="/chgaccount">帐号管理</a></li>
-				<li><a href="/logout">退出</a></li>
-			</ul>
-		</nav>
-	</header>
-	<section id="ctn">
-		<section id="sidebar">
-			<nav id="book_nav">
+					<section class="score-panel">
+						<ul class="stars">
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+							<li><i class="fa fa-star"></i></li>
+						</ul>
 
-				<h3>合同管理</h3>
-				<ul>
-					<li><a class="tog" title="contract_query.html">查询合同</a></li>
-					<li><a class="tog" title="contract_add.html">签定合同</a></li>
-				</ul>
+						步数：<span class="moves">0</span>
 
-				<h3>入库管理</h3>
-				<ul>
-					<li><a class="tog" title="income_query.html">入库记录</a></li>
-					<li><a class="tog" title="income_add.html">新增入库</a></li>
-				</ul>
+						<div class="restart" onClick="run()">
+							<i class="fa fa-repeat"></i>
+						</div>
+					</section>
 
-				<h3>出库管理</h3>
-				<ul>
-					<li><a class="tog" title="outgo_query.html">出库记录</a></li>
-					<li><a class="tog" title="outgo_add.html">新增出库</a></li>
-				</ul>
+					<ul class="deck" id="deck">
 
-				<h3>发票管理</h3>
-				<ul>
-					<li><a class="tog" title="invoice_query.html">发票记录</a></li>
-					<li><a class="tog" title="invoice_add.html">新增发票</a></li>
-				</ul>
-
-				<h3>回款管理</h3>
-				<ul>
-					<li><a class="tog" title="payment_query.html">回款记录</a></li>
-					<li><a class="tog" title="payment_add.html">新增回款</a></li>
-				</ul>
-				<h3>库存管理</h3>
-				<ul>
-					<li><a class="tog" title="stock_query.html">当前库存</a></li>
-					<li><a class="tog" title="stock_add.html">增加库存客户</a></li>
-				</ul>
-				<h3>应收帐款</h3>
-				<ul>
-					<li><a class="tog" title="debt_query.html">应收帐款</a></li>
-					<li><a class="tog" title="debt_add.html">增加应收客户</a></li>
-				</ul>
-
-				<h3>报表统计系统</h3>
-				<ul>
-					<li><a class="tog" title="inway_product_query.html">购进在途查询</a></li>
-					<li><a class="tog" title="outway_product_query.html">售出欠货查询</a></li>
-					<li><a class="tog" title="inway_invoice_query.html">购进未开发票</a></li>
-					<li><a class="tog" title="outway_invoice_query.html">售出未开发票</a></li>
-					<li><a class="aaa" target="_blank" href="/xls2cat">表格合并工具</a></li>
-					<li><a class="aaa" target="_blank" href="/discount">票折计算工具</a></li>
-					<li><a class="aaa" target="_blank" href="/tax">高开扣税计算</a></li>
-
-				</ul>
-				<h3>品种信息维护</h3>
-				<ul>
-					<li><a class="tog" title="product_query.html">品种信息</a></li>
-					<li><a class="tog" title="product_add.html">新增品种</a></li>
-				</ul>
-				<h3>客户信息维护</h3>
-				<ul>
-					<li><a class="tog" title="customer_query.html">客户记录</a></li>
-					<li><a class="tog" title="customer_add.html">新增客户</a></li>
-				</ul>
-				<h3>合同信息维护</h3>
-				<ul>
-					<li><a class="tog" title="contract0_query.html">已备案合同</a></li>
-					<li><a class="tog" title="contract0_add.html">增加备案合同</a></li>
-				</ul>
-
-			</nav>
+					</ul>
+				</div>
+			</section>
 		</section>
-		<section id="posts">
-			<article id="article" class="post">
-				<h1>欢迎使用慧慧进销存系统</h1>
-				<p>使用说明</p>
-				<ul>
-					<li>首先要在合同信息维护中登记合同，否则无法签定合同也就无法进行其它业务。</li>
-					<li>一笔合同中同一品种只能有一个价格，如果同一品种要发不同的价格请使用不同的合同号，赠品可以虚拟一个合同号，虚拟的合同号在原合同号后面加个a即可。</li>
-					<li>库存和欠款在第一次校准后不需要再修改，入库出库回款等相关操作会自动处理库存和欠款。</li>
-					<li>在途不能修改，这是自动生成的，如果有错误请查询发货入库等数据是否有错。</li>
-				</ul>
-			</article>
+		<section id="apple-clock">
+			<div class="fill">
+				<div class="reference"></div>
+				<div class="clock" id="utility-clock">
+					<div class="centre">
+						<div class="dynamic"></div>
+						<div class="expand round circle-1"></div>
+						<div class="anchor hour">
+							<div class="element thin-hand"></div>
+							<div class="element fat-hand"></div>
+						</div>
+						<div class="anchor minute">
+							<div class="element thin-hand"></div>
+							<div class="element fat-hand minute-hand"></div>
+						</div>
+						<div class="anchor second">
+							<div class="element second-hand"></div>
+						</div>
+						<div class="expand round circle-2"></div>
+						<div class="expand round circle-3"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="last-box">
+			<section>
+				<a href="jxc">进销存系统</a>
+			</section>
+			<section id="digit">
+				<div id="digit-clock">
+					<p class="date"></p>
+					<p class="time"></p>
+				</div>
+			</section>
 		</section>
 	</section>
-	<footer id="page_footer">
-		<small>
-			<nav>
-				<p style="margin-top:3em; color:#939393">Copyright @ 2018 周京成(所有权保留)</p>
-				<p><a target="_blank" href="http://www.miitbeian.gov.cn/" style="color:#939393">鲁ICP备14025598号-4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
-				<p><img src="/static/beian.png" style="vertical-align: middle" /><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37090202000089"
-					 style="color:#939393">鲁公网安备 37090202000089号</a></p>
-			</nav>
-		</small>
-	</footer>
 
-	<script src="/static/js/index.js"></script>
+
+
+
+	<section id="page_footer">
+		<footer>
+			<small>
+				<nav>
+					<p style="margin-top:3em; color:#939393">Copyright @ 2018 周京成(所有权保留)</p>
+					<p><a target="_blank" href="http://www.miitbeian.gov.cn/" style="color:#939393">鲁ICP备14025598号-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+					<p><img src="/static/beian.png" style="vertical-align: middle" /><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37090202000089"
+						 style="color:#939393">鲁公网安备 37090202000089号</a></p>
+				</nav>
+			</small>
+		</footer>
+	</section>
+	<script src="static/js/apple-clock.js"></script>
+	<script src="static/js/game.js"></script>
+	<script src="static/js/index.js"></script>
 
 
 

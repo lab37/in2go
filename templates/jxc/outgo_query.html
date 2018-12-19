@@ -5,18 +5,38 @@
 	<label for="outgo_cstmname">销售客户：</label><input class="input" type="text" id="cstmname" name="outgo_cstmname" />
 	<label for="outgo_ogdate">出库日期：</label><input class="input" type="text" id="ogdate" name="outgo_ccdate" />
 	<label for="outgo_prdtname">品种名称：</label><input class="input" type="text" id="prdtname" name="outgo_prdtname" /></br>
-	<label for="outgo_specific">产品规格：</label><input class="input" type="text" id="specific" name="outgo_specific" /> 
+	<label for="outgo_specific">产品规格：</label><input class="input" type="text" id="specific" name="outgo_specific" />
 	<label for="outgo_pnumber">产品批号：</label><input class="input" type="text" id="pnumber" name="outgo_pnumber" />
 	<label for="outgo_remark">备注信息：</label><input class="input" type="text" id="remark" name="outgo_remark" />
-</br>
+	</br>
 	<button id="outgo_query_some">查询</button>
 	<button id="outgo_query_all">查询全部</button>
 	<button id="export" style="background-color:darkgreen">导出结果</button>
 </fieldset>
-<table id="outgo_results">
+<table id="outgo_results" class="sortable">
+	<thead>
+		<tr>
+			<th>合同编号</th>
+			<th>仓库名称</th>
+			<th>客户名称</th>
+			<th>出库日期</th>
+			<th>产品名称</th>
+			<th>规格</th>
+			<th>价格</th>
+			<th>数量</th>
+			<th>批号</th>
+			<th>物流名称</th>
+			<th>物流单号</th>
+			<th>备注</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody id='rows'>
+	</tbody>
 </table>
 <fieldset id='change_table'>
-	
+
 </fieldset>
-<script src="/static/js/jxc/outgo_query.js" ></script>
-<link rel="stylesheet" href="/static/css/jxc.css">
+<script src="/static/js/jxc/outgo_query.js"></script>
+<script src="/static/js/sort-table.js"></script>
+<link rel="stylesheet" href="/static/css/jxc_query.css">

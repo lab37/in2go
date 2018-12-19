@@ -32,19 +32,7 @@ function customer_query(e) {
     if (xhr.status == 200) {
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
-      newContent += '<tr class="table_title">';
-      newContent += '<td>客户编码</td>';
-      newContent += '<td>客户名称</td>';
-      newContent += '<td>客户类型</td>';
-      newContent += '<td>收货地址</td>';
-      newContent += '<td>收货人</td>';
-      newContent += '<td>收货电话</td>';
-      newContent += '<td>收票地址</td>';
-      newContent += '<td>收票人</td>';
-      newContent += '<td>收票电话</td>';
-      newContent += '<td>备注</td>';
-      newContent += '<td>操作</td>';
-      newContent += '</tr>';
+      
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].CstmId + '">';
         newContent += '<td name="cstmid">' + responseObject[i].CstmId + '</td>';
@@ -61,7 +49,8 @@ function customer_query(e) {
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('customer_results').innerHTML = newContent;
+      document.getElementById('rows').innerHTML = newContent;
+      $('#customer_results').show()
       $('#export').show()
     }
   };
@@ -70,6 +59,7 @@ function customer_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
+$('#customer_results').hide();
 $('#export').hide();
 $('#export').click(function(){
   table2xlsx('xlsx','customer_results');

@@ -20,6 +20,7 @@ func main() {
 
 	// index
 	mux.HandleFunc("/", index)
+	mux.HandleFunc("/jxc", jxc)
 	mux.HandleFunc("/webchat", webchat)
 	mux.HandleFunc("/htmlturn", htmlTurn)
 	mux.HandleFunc("/chgaccount", chgAccount)

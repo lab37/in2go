@@ -252,3 +252,4 @@ ERROR 2018/12/14 22:55:22 utils.go:100: When insert the payment get an error CHE
 ERROR 2018/12/15 20:05:24 utils.go:100: When insert the invoice get an error CHECK constraint failed: onway_invoices
 ERROR 2018/12/16 09:05:45 utils.go:100: sql: no rows in result set Cannot find user
 WARNING 2018/12/18 11:59:07 utils.go:105: <nil> Failed to get cookie
+WARNING 2018/12/18 21:10:30 utils.go:105: <nil> Failed to get cookie

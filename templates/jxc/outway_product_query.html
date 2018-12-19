@@ -2,19 +2,35 @@
 	<legend><span>售出未发货查询</span></legend>
 	<label for="outway_product_ccid">合同号码：</label><input class="input" type="text" id="ccid" name="outway_product_ccid" />
 	<label for="outway_product_srcname">售方名称：</label><input class="input" type="text" id="srcname" name="outway_srcname" />
-	
+
 	<label for="outway_product_cstmname">购方名称：</label><input class="input" type="text" id="cstmname" name="outway_product_cstmname" />
 	<label for="outway_product_prdtname">产品名称：</label><input class="input" type="text" id="prdtname" name="outway_product_prdtname" />
-	<label for="outway_product_specific">产品规格：</label><input class="input" type="text" id="specific" name="outway_product_specific" /> 
-</br>
+	<label for="outway_product_specific">产品规格：</label><input class="input" type="text" id="specific" name="outway_product_specific" />
+	</br>
 	<button id="outway_product_query_some">查询</button>
 	<button id="outway_product_query_all">查询全部</button>
 	<button id="export" style="background-color:darkgreen">导出结果</button>
 </fieldset>
-<table id="outway_product_results">
+<table id="outway_product_results" class="sortable">
+	<thead>
+		<tr>
+			<th>合同号码</th>
+			<th>售方名称</th>
+			<th>购方名称</th>
+			<th>品种名称</th>
+			<th>品种规格</th>
+			<th>合同数量</th>
+			<th>发出数量</th>
+			<th>差额</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody id='rows'>
+	</tbody>
 </table>
 <fieldset id='change_table'>
-	
+
 </fieldset>
-<script src="/static/js/jxc/outway_product_query.js" ></script>
-<link rel="stylesheet" href="/static/css/jxc.css">
+<script src="/static/js/jxc/outway_product_query.js"></script>
+<script src="/static/js/sort-table.js"></script>
+<link rel="stylesheet" href="/static/css/jxc_query.css">

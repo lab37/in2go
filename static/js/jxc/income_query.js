@@ -36,19 +36,7 @@ function income_query(e) {
 
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
-      newContent += '<tr class="table_title">';
-      newContent += '<td>合同编号</td>';
-      newContent += '<td>上游客户</td>';
-      newContent += '<td>销售客户</td>';
-      newContent += '<td>入库日期</td>';
-      newContent += '<td>产品名称</td>';
-      newContent += '<td>规格</td>';
-      newContent += '<td>价格</td>';
-      newContent += '<td>数量</td>';
-      newContent += '<td>批号</td>';
-      newContent += '<td>备注</td>';
-      newContent += '<td>操作</td>';
-      newContent += '</tr>';
+      
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].Id + '">';
         newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
@@ -65,7 +53,8 @@ function income_query(e) {
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('income_results').innerHTML = newContent;
+      document.getElementById('rows').innerHTML = newContent;
+      $('#income_results').show();
       $('#export').show()
     }
   };
@@ -75,6 +64,7 @@ function income_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
+$('#income_results').hide();
 $('#export').hide();
 $('#export').click(function(){
   table2xlsx('xlsx','income_results');

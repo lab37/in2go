@@ -3,15 +3,27 @@
 	<label for="debt_srcname">收款客户：</label><input class="input" type="text" id="srcname" name="debt_srcname" />
 	<label for="debt_cstmname">欠款客户：</label><input class="input" type="text" id="cstmname" name="debt_cstmname" />
 	<label for="debt_remark">备注信息：</label><input class="input" type="text" id="remark" name="debt_remark" />
-</br>
+	</br>
 	<button id="debt_query_some">查询</button>
 	<button id="debt_query_all">查询全部</button>
 	<button id="export" style="background-color:darkgreen">导出结果</button>
 </fieldset>
-<table id="debt_results">
+<table id="debt_results" class="sortable">
+	<thead>
+		<tr>
+			<th>收款客户</th>
+			<th>欠款客户</th>
+			<th>应收余额</th>
+			<th>备注</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody id='rows'>
+	</tbody>
 </table>
 <fieldset id='change_table'>
-	
+
 </fieldset>
-<script src="/static/js/jxc/debt_query.js" ></script>
-<link rel="stylesheet" href="/static/css/jxc.css">
+<script src="/static/js/jxc/debt_query.js"></script>
+<script src="/static/js/sort-table.js"></script>
+<link rel="stylesheet" href="/static/css/jxc_query.css">

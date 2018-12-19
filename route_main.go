@@ -19,16 +19,19 @@ func err(writer http.ResponseWriter, request *http.Request) {
 }
 
 func index(writer http.ResponseWriter, request *http.Request) {
+	templates := template.Must(template.ParseFiles("templates/index.html"))
+	templates.Execute(writer, "")
+}
+func jxc(writer http.ResponseWriter, request *http.Request) {
 	_, err := session(writer, request)
 	if err != nil {
 		http.Redirect(writer, request, "/login", 302)
 	} else {
-		templates := template.Must(template.ParseFiles("templates/index.html"))
+		templates := template.Must(template.ParseFiles("templates/jxc.html"))
 		templates.Execute(writer, "")
 
 	}
 }
-
 func htmlTurn(writer http.ResponseWriter, request *http.Request) {
 	_, err := session(writer, request)
 	if err != nil {

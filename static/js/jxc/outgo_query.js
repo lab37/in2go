@@ -36,21 +36,7 @@ function outgo_query(e) {
 
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
-      newContent += '<tr class="table_title">';
-      newContent += '<td>合同编号</td>';
-      newContent += '<td>仓库名称</td>';
-      newContent += '<td>客户名称</td>';
-      newContent += '<td>出库日期</td>';
-      newContent += '<td>产品名称</td>';
-      newContent += '<td>规格</td>';
-      newContent += '<td>价格</td>';
-      newContent += '<td>数量</td>';
-      newContent += '<td>批号</td>';
-      newContent += '<td>物流名称</td>';
-      newContent += '<td>物流单号</td>';
-      newContent += '<td>备注</td>';
-      newContent += '<td>操作</td>';
-      newContent += '</tr>';
+      
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].Id + '">';
         newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
@@ -69,7 +55,8 @@ function outgo_query(e) {
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('outgo_results').innerHTML = newContent;
+      document.getElementById('rows').innerHTML = newContent;
+      $('#outgo_results').show();
       $('#export').show();
     }
   };
@@ -79,6 +66,7 @@ function outgo_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
+$('#outgo_results').hide();
 $('#export').hide();
 $('#export').click(function(){
   table2xlsx('xlsx','outgo_results');

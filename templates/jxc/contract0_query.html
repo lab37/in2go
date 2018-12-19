@@ -14,10 +14,22 @@
 	<button id="contract0_query_all">查询全部</button>
 	<button id="export" style="background-color:darkgreen">导出结果</button>
 </fieldset>
-<table id="contract0_results">
+<table id="contract0_results"  class="sortable">
+		<thead>
+				<tr>
+					<th>合同编号</th>
+					<th>所属企业</th>
+					<th>购进售出</th>
+					<th>备注</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody id='rows'>
+			</tbody>
 </table>
 <fieldset id='change_table'>
 
 </fieldset>
 <script src="/static/js/jxc/contract0_query.js"></script>
-<link rel="stylesheet" href="/static/css/jxc.css">
+<script src="/static/js/sort-table.js"></script>
+<link rel="stylesheet" href="/static/css/jxc_query.css">

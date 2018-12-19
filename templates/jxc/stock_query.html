@@ -1,20 +1,33 @@
 <fieldset>
 	<legend><span>当前库存</span></legend>
 	<label for="stocks_cstmname">仓库名称：</label><input class="input" type="text" id="cstmname" name="contract_cstmname" />
-	
+
 	<label for="stocks_prdtname">品种名称：</label><input class="input" type="text" id="prdtname" name="stocks_prdtname" />
-	<label for="stocks_specific">产品规格：</label><input class="input" type="text" id="specific" name="stocks_specific" /> 
+	<label for="stocks_specific">产品规格：</label><input class="input" type="text" id="specific" name="stocks_specific" />
 	<label for="stocks_pnumber">产品批号：</label><input class="input" type="text" id="pnumber" name="stocks_pnumber" />
 	<label for="stocks_remark">备注信息：</label><input class="input" type="text" id="remark" name="stocks_remark" />
-</br>
+	</br>
 	<button id="stock_query_some">查询</button>
 	<button id="stock_query_all">查询全部</button>
 	<button id="export" style="background-color:darkgreen">导出结果</button>
 </fieldset>
-<table id="stocks_results">
+<table id="stocks_results" class="sortable">
+	<thead>
+		<tr>
+			<th>仓库名称</th>
+			<th>品种名称</th>
+			<th>品种规格</th>
+			<th>产品批号</th>
+			<th>库存数量</th>
+			<th>备注</th>
+		</tr>
+	</thead>
+	<tbody id='rows'>
+	</tbody>
 </table>
 <fieldset id='change_table'>
-	
+
 </fieldset>
-<script src="/static/js/jxc/stock_query.js" ></script>
-<link rel="stylesheet" href="/static/css/jxc.css">
+<script src="/static/js/jxc/stock_query.js"></script>
+<script src="/static/js/sort-table.js"></script>
+<link rel="stylesheet" href="/static/css/jxc_query.css">

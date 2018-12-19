@@ -33,13 +33,7 @@ function contract0_query(e) {
 
       responseObject = JSON.parse(xhr.responseText);
       var newContent = '';
-      newContent += '<tr class="table_title">';
-      newContent += '<td>合同号码</td>';
-      newContent += '<td>所属企业</td>';
-      newContent += '<td>购进售出</td>';
-      newContent += '<td>备注</td>';
-      newContent += '<td>操作</td>';
-      newContent += '</tr>';
+      
       for (var i = 0; i < responseObject.length; i++) {    // Loop through object
         newContent += '<tr id="' + responseObject[i].CcId + '">';
         newContent += '<td name="ccid">' + responseObject[i].CcId + '</td>';
@@ -50,7 +44,8 @@ function contract0_query(e) {
         newContent += '</tr>';
       }
       // Update the page with the new content
-      document.getElementById('contract0_results').innerHTML = newContent;
+      document.getElementById('rows').innerHTML = newContent;
+      $('#contract0_results').show();
       $('#export').show()
     }
   };
@@ -60,6 +55,7 @@ function contract0_query(e) {
   xhr.send(postStr);
   console.log(postStr);
 };
+$('#contract0_results').hide();
 $('#export').hide();
 $('#export').click(function(){
   table2xlsx('xlsx','contract0_results');
