@@ -44,6 +44,9 @@ a{
     width: 900px;
     height: 900px;
 }
+#utility-clock {
+    transform: scale(3);
+}
 #digit-clock {
     font-family: 'Share Tech Mono', monospace;
     color: #ffffff;

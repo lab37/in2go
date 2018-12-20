@@ -1,7 +1,7 @@
 var clock = document.querySelector('#utility-clock')
 utilityClock(clock)
 
-if (clock.parentNode.classList.contains('fill')) autoResize(clock, 295 + 32)
+// if (clock.parentNode.classList.contains('fill')) autoResize(clock, 295 + 32) //调用自动缩放钟表大小函数
 
 function utilityClock(container) {
     var dynamic = container.querySelector('.dynamic')
@@ -58,7 +58,7 @@ function utilityClock(container) {
     animate()
 }
 
-function autoResize(element, nativeSize) {
+function autoResize(element, nativeSize) {//自动缩放钟表大小
     var update = function() {
         var scale = Math.min(window.innerWidth, window.innerHeight) / nativeSize
         element.style.transform = element.style.webkitTransform = 'scale(' + scale.toFixed(3) + ')'
