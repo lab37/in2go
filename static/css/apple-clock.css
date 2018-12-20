@@ -8,7 +8,9 @@
     left: 50%;
     top: 50%;
 }
-
+#utility-clock {
+    transform: scale(2);
+}
 .centre {
     position: absolute;
     top: 50%;

@@ -8,18 +8,13 @@ body {
 
 #clock-ctn {
 
-    width:100%;
+    width:1360px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: stretch;
+    align-items: center;
 }
 
-#first-box{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
 #last-box{
     display:flex;
@@ -41,12 +36,10 @@ a{
 #apple-clock {
     
     position: relative;
-    width: 900px;
-    height: 900px;
+    width: 600px;
+    height: 600px;
 }
-#utility-clock {
-    transform: scale(3);
-}
+
 #digit-clock {
     font-family: 'Share Tech Mono', monospace;
     color: #ffffff;
