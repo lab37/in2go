@@ -72,3 +72,10 @@ a{
     font-size: 12px;
     padding: 5px 0 0;
   }
+
+  #page_footer {
+    clear: both;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }

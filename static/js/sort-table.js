@@ -23,6 +23,26 @@ var compare = {                           // Declare compare object
     b = new Date(b);                      // New Date object to hold the date
 
     return a - b;                         // Return a minus b
+  },
+  iint: function(a, b) {                  // Add a method 用于比较日期
+    a = parseInt(a);                      // 转化为日期对像
+    b = parseInt(b);                      // New Date object to hold the date
+
+    if (a < b) {                          // If value a is less than value b
+      return -1;                          // Return -1
+    } else {                              // Otherwise
+      return a > b ? 1 : 0;               // If a is greater than b return 1 OR
+    }                          // Return a minus b
+  },
+  ffloat: function(a, b) {                  // Add a method 用于比较日期
+    a = parseFloat(a);                      // 转化为日期对像
+    b = parseFloat(b);                      // New Date object to hold the date
+
+    if (a < b) {                          // If value a is less than value b
+      return -1;                          // Return -1
+    } else {                              // Otherwise
+      return a > b ? 1 : 0;               // If a is greater than b return 1 OR
+    }                          // Return a minus b
   }
 };
 

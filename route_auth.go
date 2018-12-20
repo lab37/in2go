@@ -88,7 +88,7 @@ func authenticate(writer http.ResponseWriter, request *http.Request) {
 			HttpOnly: true,
 		}
 		http.SetCookie(writer, &cookie)
-		http.Redirect(writer, request, "/", 302)
+		http.Redirect(writer, request, "/jxc", 302)
 	} else {
 		http.Redirect(writer, request, "/login", 302)
 	}
