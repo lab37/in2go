@@ -112,7 +112,7 @@ function sv(id) {
   topic:'contract0',
   id:id,
   ccid : document.getElementById("updateccid").value.replace(/\s+/g,""),
-  inventor : document.getElementById("updatecstmname").value.replace(/\s+/g,""),
+  cstmname : document.getElementById("updatecstmname").value.replace(/\s+/g,""),
   vector : document.getElementById("updatevector").value.replace(/\s+/g,""),
   remark : document.getElementById("updateremark").value.replace(/\s+/g,"")
   },
