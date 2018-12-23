@@ -97,6 +97,7 @@ function upt(id) {
 }
 
 function sv(id) {
+  console.log(id);
   $.post("updateitem", {
     topic: 'debt',
     id: id,

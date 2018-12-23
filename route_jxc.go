@@ -478,7 +478,7 @@ func updateItem(writer http.ResponseWriter, request *http.Request) {
 			debt.CstmName = strings.TrimFunc(request.PostFormValue("cstmname"), unicode.IsSpace)
 			debt.DbtSum, _ = strconv.ParseFloat(strings.TrimFunc(request.PostFormValue("dbtsum"), unicode.IsSpace), 64)
 			debt.Remark = strings.TrimFunc(request.PostFormValue("remark"), unicode.IsSpace)
-			err := debt.Insert()
+			err := debt.Update()
 			if err != nil {
 				danger("When update the debts get an error", err)
 				fmt.Fprintf(writer, "更新失败！服务器错误")
