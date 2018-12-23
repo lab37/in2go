@@ -110,8 +110,7 @@ function upt(id) {
 function sv(id) {
   $.post("updateitem",{
   topic:'contract0',
-  id:id,
-  ccid : document.getElementById("updateccid").value.replace(/\s+/g,""),
+  ccid : id,
   cstmname : document.getElementById("updatecstmname").value.replace(/\s+/g,""),
   vector : document.getElementById("updatevector").value.replace(/\s+/g,""),
   remark : document.getElementById("updateremark").value.replace(/\s+/g,"")
@@ -135,7 +134,7 @@ function del(id) {
     $.post("deleteitem",
       {
         topic: "contract0",
-        id: id
+        ccid: id
       },
       function (data, status) {
         if (status == "success") {
