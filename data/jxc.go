@@ -211,14 +211,14 @@ func (r *Contract) Delete() (err error) {
 }
 
 func (r *Income) Insert() (err error) {
-	statement := "insert into incomes(ccid,icdate, prdtid, quantity, pnumber, remark) values (?,?,(select prdtid from products where products.prdtname like ? limit 1),?,?,?)"
+	statement := "insert into incomes(ccid,icdate, prdtid, quantity, pnumber, remark) values (?,?,(select prdtid from products where products.prdtname like ? and products.specific like ? limit 1),?,?,?)"
 	stmt, err := Db.Prepare(statement)
 	defer stmt.Close()
 	if err != nil {
 		return
 	}
 
-	_, err = stmt.Exec(r.CcId, r.IcDate, "%"+r.PrdtName+"%", r.Quantity, r.Pnumber, r.Remark)
+	_, err = stmt.Exec(r.CcId, r.IcDate, "%"+r.PrdtName+"%", "%"+r.Specific+"%", r.Quantity, r.Pnumber, r.Remark)
 	return
 }
 
